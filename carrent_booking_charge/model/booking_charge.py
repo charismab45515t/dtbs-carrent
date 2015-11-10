@@ -1,12 +1,19 @@
-from openerp import models, fields, api, _, netsvc
+from openerp import models, fields, api, netsvc
 from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
+from ..text import DRAFT, INVOIC, EXCEPT
+from ..text import WARN_HEAD1, WARN_DEFAULT_COMPANY, WARN_HEAD2, WARN_NEW_INVOIC
 import datetime
 import time
 import urllib2
 
+STATE = [
+	('draft', DRAFT),
+	('invoic', INVOIC),
+	('except', EXCEPT)
+]
 
 # ============ Product Inherit ==============#
  
@@ -50,7 +57,7 @@ class booking_charge(models.Model):
 	date_end = fields.Date(string="Estimated Date End", required=True, readonly=True, states={'draft': [('readonly', False)]})
 	real_date_end = fields.Date(string="Real Returned Date", required=True, readonly=True, states={'draft': [('readonly', False)]})
 	late = fields.Integer(string="Time (day)", required=True)
-	state = fields.Selection([('draft', 'Draft'),('invoic', 'Invoiced'),('except', 'Exception')], string='Status', default='draft')
+	state = fields.Selection(STATE, string='Status', default='draft')
 	company_id = fields.Many2one(comodel_name='res.company', string='Company', states={'draft': [('readonly', False)]}, default=lambda self: self._get_default_company())
 	comment = fields.Text(string="Additional Information")
 	invoice_id = fields.Many2one(comodel_name="account.invoice", string="Invoice", auto_join=True)
@@ -60,7 +67,7 @@ class booking_charge(models.Model):
 	def _get_default_company(self):
 		company_id = self.env['res.users']._get_company()
 		if not company_id:
-			raise except_orm('Error!', 'There is no default company for the current user!')
+			raise except_orm(WARN_HEAD1, WARN_DEFAULT_COMPANY)
 		return company_id
 
 
@@ -81,7 +88,7 @@ class booking_charge(models.Model):
 		journal_ids = self.env['account.journal'].search([('type', '=', 'sale'), ('company_id', '=', self.company_id.id)],
 			limit=1)
 		if not journal_ids:
-			raise Warning(('Error!'),('Please define sales journal for this company: "%s" (id:%d).') % (self.company_id.name, self.company_id.id))
+			raise Warning(WARN_HEAD2, WARN_NEW_INVOIC % (self.company_id.name, self.company_id.id))
 
 		product_ids = self.env['dtbs.carrent.booking.charge.setting'].search([('ischarge','=',True)])
 

@@ -1,12 +1,29 @@
-from openerp import models, fields, api, _, netsvc
+from openerp import models, fields, api, netsvc
 from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
+from ..text import DRAFT, CONFIRM, SALE, RENT, CANCEL, RETURN, ASSIGN, UNASSIGN
+from ..text import UNIQ_NUMBER
+from ..text import WARN_HEAD1, WARN_DATE_RENT, WARN_DATE_OVERLAP, WARN_HEAD2, WARN_DEFAULT_COMPANY, WARN_HEAD3, WARN_BOOKING_CHANGE
+from ..text import WARN_HEAD4, WARN_TIME_PERIOD
 import datetime
 import time
 import urllib2
 
+STATE = [
+	('draft', DRAFT),
+	('confirm', CONFIRM),
+	('sale', SALE),
+	('rent', RENT),
+	('cancel', CANCEL),
+	('return', RETURN),
+]
+
+STATE2 = [
+	('assigned', ASSIGN), 
+	('unassigned', UNASSIGN),
+]
 
 # =========  Booking =========== #
 class Booking(models.Model):
@@ -24,7 +41,7 @@ class Booking(models.Model):
 	_order = 'date_order desc, date_rent desc, id desc'
 
 	no_book = fields.Char(string="Booking Number", readonly=True, track_visibility='onchange')
-	state = fields.Selection([('draft', 'Draft'),('confirm', 'Confirm'),('sale', 'Sale to Invoice'),('rent', 'On Rent'),('cancel', 'Cancelled'),('return', 'Returned')], string='Status', default='draft',
+	state = fields.Selection(STATE, string='Status', default='draft',
 								track_visibility='onchange')
 	customer_id = fields.Many2one(comodel_name="res.partner", string="Customer", required=True, domain=[("customer", "=", True)], states={'draft': [('readonly', False)]},
 									track_visibility='onchange')
@@ -59,14 +76,14 @@ class Booking(models.Model):
 
 
 	_sql_constraints = [
-		("Unique Number", "UNIQUE(company_id,no_book)", "The Booking Number must be unique"),
+		("Unique Number", "UNIQUE(company_id,no_book)", UNIQ_NUMBER),
 	]
 
 	@api.constrains('no_book', 'date_order', 'date_rent')
 	def constraint_date_rent(self):
 		if self.date_order and self.date_rent:
 			if self.date_rent < self.date_order:
-				raise except_orm('Warning', 'Rent date should be greater than the order date.')
+				raise except_orm(WARN_HEAD1, WARN_DATE_RENT)
 
 
 	@api.constrains('date_rent', 'date_end', 'unit_id')
@@ -74,7 +91,7 @@ class Booking(models.Model):
 		if self.date_rent and self.date_end and self.unit_id:
 			item_ids = self.search([('date_end', '>=', self.date_rent), ('date_rent', '<=', self.date_end), ('unit_id','=', self.unit_id.id), ('state', 'not in', ['cancel','return']), ('id', '<>', self.id)])
 			if item_ids:
-				raise except_orm('Warning', 'In this period had no other bookings.\nPlease select other period to rented !!')
+				raise except_orm(WARN_HEAD1, WARN_DATE_OVERLAP)
 		
 
 
@@ -133,7 +150,7 @@ class Booking(models.Model):
 	def _get_default_company(self):
 		company_id = self.env['res.users']._get_company()
 		if not company_id:
-			raise except_orm('Error!', 'There is no default company for the current user!')
+			raise except_orm(WARN_HEAD2, WARN_DEFAULT_COMPANY)
 		return company_id
 
 
@@ -388,7 +405,7 @@ class sale_order_line(models.Model):
 	@api.multi
 	def booking_no_change(self, book_no, partner_id=False):
 		if not partner_id:
-			raise Warning(_('No Customer Defined!'), _('Before choosing a product,\n select a customer in the sales form.'))
+			raise Warning(WARN_HEAD3, WARN_BOOKING_CHANGE)
 		result = {}
 		domain = {}
 		warning = False
@@ -472,7 +489,7 @@ class carrent_unit_booking_line(models.Model):
 	unit_id = fields.Many2one(comodel_name='dtbs.carrent.unit', string='Unit')
 	date_start = fields.Date('Start Date', required=True)
 	date_end = fields.Date('End Date', required=True)
-	state = fields.Selection([('assigned', 'Assigned'), ('unassigned', 'Unassigned')], 'Unit Status')
+	state = fields.Selection(STATE2, 'Unit Status')
 	booking_id = fields.Many2one('dtbs.carrent.booking', string='Booking')
 	status = fields.Selection(string='State', related='booking_id.state')
 
@@ -535,7 +552,7 @@ class Bookingsummary(models.Model):
 		summary_header_list = ['Units']
 		if self.date_from and self.date_to:
 			if self.date_from > self.date_to:
-				raise except_orm('User Error!', 'Please Check Time period Date From can\'t be greater than Date To !')
+				raise except_orm(WARN_HEAD4, WARN_TIME_PERIOD)
 			d_frm_obj = (datetime.datetime.strptime(self.date_from, DEFAULT_SERVER_DATE_FORMAT))
 			d_to_obj = (datetime.datetime.strptime(self.date_to, DEFAULT_SERVER_DATE_FORMAT))
 			temp_date = d_frm_obj

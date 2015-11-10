@@ -1,8 +1,9 @@
-from openerp import models, fields, api, _, netsvc
+from openerp import models, fields, api, netsvc
 from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
+from ..text import WARN_HEAD1, WARN_DEFAULT_COMPANY, WARN_HEAD2, WARN_PRICE_OVERLAP
 import datetime
 import time
 import urllib2
@@ -26,7 +27,7 @@ class discount_setting(models.Model):
 	def _get_default_company(self):
 		company_id = self.env['res.users']._get_company()
 		if not company_id:
-			raise except_orm('Error!', 'There is no default company for the current user!')
+			raise except_orm(WARN_HEAD1, WARN_DEFAULT_COMPANY)
 		return company_id
 
 	@api.model
@@ -67,7 +68,7 @@ class discount_line_setting(models.Model):
 							pricelist_version.discount_id.id,
 							pricelist_version.id))
 			if self._cr.fetchall():
-				raise Warning('Warning', 'You cannot have 2 pricelist versions that overlap!')
+				raise Warning(WARN_HEAD2, WARN_PRICE_OVERLAP)
 		return True
 
 

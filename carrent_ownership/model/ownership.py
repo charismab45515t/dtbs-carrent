@@ -1,12 +1,22 @@
-from openerp import models, fields, api, _, netsvc
+from openerp import models, fields, api, netsvc
 from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
+from ..text import DRAFT, CONFIRM, PROCESS, CANCEL, DONE
+from ..text import UNIQ_NUMBER_BPKB, UNIQ_POLICE_BPKB, UNIQ_NUMBER_STNK, UNIQ_POLICE_STNK
+from ..text import UNIQ_NUMBER_RENEWAL
 import datetime
 import time
 import urllib2
 
+STATE = (
+	('draft', DRAFT),
+	('confirm', CONFIRM),
+	('process', PROCESS),
+	('cancel', CANCEL),
+	('done', DONE),
+)
 
 # ============= BPKB ===========================#
 class bpkbunit(models.Model):
@@ -42,8 +52,8 @@ class bpkb(models.Model):
 	period_test = fields.Char(string="Periodically test number")
 
 	_sql_constraints = [
-		("Unique Number", "UNIQUE(name)", "The Proof of Motorized Vehicle Ownership must be unique"),
-		("Unique Police", "UNIQUE(police)", "The police number must be unique"),
+		("Unique Number", "UNIQUE(name)", UNIQ_NUMBER_BPKB),
+		("Unique Police", "UNIQUE(police)", UNIQ_POLICE_BPKB),
 	]
 
 # ============== STNK ============== #
@@ -58,8 +68,8 @@ class stnk(models.Model):
 	applies_to = fields.Date(string="Applies To")
 
 	_sql_constraints = [
-		("Unique Number", "UNIQUE(name)", "The Proof of Vehicle Registration Cards must be unique"),
-		("Unique Police", "UNIQUE(police)", "The police number must be unique"),
+		("Unique Number", "UNIQUE(name)", UNIQ_NUMBER_STNK),
+		("Unique Police", "UNIQUE(police)", UNIQ_POLICE_STNK),
 	]
 
 # ============== PERPANJANGAN ============== #
@@ -79,7 +89,7 @@ class renewal(models.Model):
 
 	no_fak = fields.Char(string="Renewal Number", readonly=True)
 	vrc_id = fields.Many2one(comodel_name="dtbs.carrent.stnk", string="VRC Number", required=True, track_visibility='onchange')
-	state = fields.Selection([('draft', 'Draft'),('confirm', 'Confirm'),('process', 'On Process'),('cancel', 'Cancelled'),('done', 'Done')], string='Status', default='draft',
+	state = fields.Selection(STATE, string='Status', default='draft',
 								track_visibility='onchange')
 	police = fields.Char(compute="_get_police", string="Police Number", store=True)
 	date_process = fields.Date(string="Processed On", required=True, default=(lambda *a:time.strftime(DEFAULT_SERVER_DATE_FORMAT)), track_visibility='onchange')
@@ -88,7 +98,7 @@ class renewal(models.Model):
 	due = fields.Date(string="Next Due Date")
 
 	_sql_constraints = [
-		("Unique Number", "UNIQUE(no_fak)", "The Renewal Number must be unique"),
+		("Unique Number", "UNIQUE(no_fak)", UNIQ_NUMBER_RENEWAL),
 	]
 
 	@api.depends('vrc_id')

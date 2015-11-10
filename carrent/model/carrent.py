@@ -1,4 +1,4 @@
-from openerp import models, fields, api, _, netsvc
+from openerp import models, fields, api, netsvc
 from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
@@ -8,6 +8,10 @@ import datetime
 import time
 import urllib2
 
+STATE = (
+    ('available', AVAILABLE),
+    ('occupied', OCCUPIED),
+)
 
 # =========  Brand =========== #
 class Brand(models.Model):
@@ -62,10 +66,6 @@ class product_template(models.Model):
 
 	isvehicle = fields.Boolean('Is Available', default=True)
 
-STATE = (
-    ('available', AVAILABLE),
-    ('occupied', OCCUPIED),
-)
 
 class Unit(models.Model):
 	_name = "dtbs.carrent.unit"

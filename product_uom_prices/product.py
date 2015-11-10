@@ -3,9 +3,10 @@
 # For copyright and license notices, see __openerp__.py file in module root
 # directory
 ##############################################################################
-from openerp import models, fields, _, api
+from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 from openerp.exceptions import Warning
+from text import UNIQ_PRICE, WARN_DEFAULT_UOM, WARN_CATEGORY_UOM
 
 
 class product_uom_price(models.Model):
@@ -27,7 +28,7 @@ class product_uom_price(models.Model):
 
     _sql_constraints = [
         ('price_uniq', 'unique(product_tmpl_id, uom_id)',
-            'UOM mast be unique per Product Template!'),
+            UNIQ_PRICE),
     ]
 
 
@@ -53,11 +54,9 @@ class product_template(models.Model):
         uom_categ_ids = list(set(uom_categ_ids))
         uom_ids = [x.uom_id.id for x in self.uom_price_ids]
         if self.uom_id.id in uom_ids:
-            raise Warning(_('UOM %s is the default product uom, \
-                you can not se it in UOM prices') % (self.uom_id.name))
+            raise Warning(WARN_DEFAULT_UOM % (self.uom_id.name))
         if len(uom_categ_ids) > 1 or (uom_categ_ids and uom_categ_ids[0] != self.uom_id.category_id.id):
-            raise Warning(_('UOM Prices Category must be of the same \
-                UOM Category as Product Unit of Measure'))
+            raise Warning(WARN_CATEGORY_UOM)
 
     def _price_get(self, cr, uid, products, ptype='list_price', context=None):
         if not context:
