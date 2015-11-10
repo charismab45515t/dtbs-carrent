@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+    <data>
+        <record id="view_dtbs_booking_settings_form" model="ir.ui.view">
+            <field name="name">dtbs.booking.settings.form</field>
+            <field name="model">dtbs.booking.settings</field>
+            <field name="arch" type="xml">
+                <form class="oe_form_configuration" string="dtbs.booking.settings.form">
+                    <header><button type="object" name="execute" string="Apply" class="oe_highlight"/> or <button type="object" name="cancel" string="Cancel" class="oe_link"/></header>
+                    <group name="booking" string="Booking">
+                        <label string="Booking Mail to Customer" for="id"/>
+                        <div>
+                            <div>
+                                <label class="oe_inline" for="default_auto_booking_mail"/>
+                                <field name="default_auto_booking_mail" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_dtbs_booking_settings" model="ir.actions.act_window">
+            <field name="name">Booking Settings</field>
+            <field name="res_model">dtbs.booking.settings</field>
+            <field name="view_mode">form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="target">inline</field>
+            <field name="view_type">form</field>
+        </record>
+    </data>
+</openerp>

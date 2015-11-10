@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <menuitem id="renewal_menu" name="Renewal" parent="carrent.main_carrent_menu" sequence="600"/>
+        <menuitem id="ownership_menu" name="Legal Ownership" parent="carrent.config_menu" sequence="702"/>
+
+        <!-- ============ INHERIT UNIT ================ -->
+        <record id="view_unit_form_inherited" model="ir.ui.view">
+            <field name="name">view.unit.form.inherited</field>
+            <field name="model">dtbs.carrent.unit</field>
+            <field name="inherit_id" ref="carrent.dtbs_unit_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Facility']" position="after">
+                    <page string="Ownership">
+                        <group>
+                            <field name="bpkb_id"/>
+                            <field name="stnk_id"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- ============= BPKB =================== -->
+        <record model="ir.ui.view" id="dtbs_bpkb_tree_view">
+            <field name="name">dtbs.bpkb.tree</field>
+            <field name="model">dtbs.carrent.bpkb</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="dtbs_bpkb_tree" toolbar="1">
+                    <field name="name"/>
+                    <field name="owner_name"/>
+                    <field name="police"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_bpkb_form_view">
+            <field name="name">dtbs.bpkb.form</field>
+            <field name="model">dtbs.carrent.bpkb</field>
+            <field name="arch" type="xml">
+                <form string="Proof of Motorized Vehicle Ownership">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Proof of Motorized Vehicle Ownership Number" />
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                            <label for="police" string="Police Number" />
+                            <h2>
+                                <field name="police" />
+                            </h2>
+                        </div>
+
+                        <group>
+                            <field name="owner_name"/>
+                            <field name="address"/>
+                            <field name="job"/>
+                        </group>
+                        <notebook>
+                            <page string="Vehicle Identity">
+                                <group>
+                                    <group>
+                                        <field name="brand_id"/>
+                                        <field name="car_type"/>
+                                        <field name="car_kind"/>
+                                        <field name="model_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="create_year"/>
+                                        <field name="assembly_year"/>
+                                        <field name="silinder"/>
+                                        <field name="color_id"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="chassis"/>
+                                        <field name="machine"/>
+                                        <field name="axes"/>
+                                        <field name="wheels"/>
+                                    </group>
+                                    <group>
+                                        <field name="fuel"/>
+                                        <field name="cetificate_test"/>
+                                        <field name="period_test"/>
+                                    </group>
+                                 </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_bpkb_search_view">
+            <field name="name">dtbs.bpkb.search</field>
+            <field name="model">dtbs.carrent.bpkb</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="police"/>
+                    <field name="owner_name"/>
+                    <field name="brand_id"/>
+                    <field name="car_type"/>
+                    <field name="car_kind"/>
+                    <field name="model_id"/>
+                    <field name="create_year"/>
+                    <field name="assembly_year"/>
+                    <field name="silinder"/>
+                    <field name="color_id"/>
+                    <field name="chassis"/>
+                    <field name="machine"/>
+                    <field name="axes"/>
+                    <field name="wheels"/>
+                    <field name="fuel"/>
+                    <field name="cetificate_test"/>
+                    <field name="period_test"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_bpkb_list_action">
+            <field name="name">Legal Ownership</field>
+            <field name="res_model">dtbs.carrent.bpkb</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new legal ownership here
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="legal_menu" name="PMVO (BPKB)" parent="ownership_menu"
+                  sequence="1"
+                  action="dtbs_bpkb_list_action"/>
+
+
+        <!-- ============= STNK =================== -->
+        <record model="ir.ui.view" id="dtbs_stnk_tree_view">
+            <field name="name">dtbs.stnk.tree</field>
+            <field name="model">dtbs.carrent.stnk</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="dtbs_stnk_tree" toolbar="1">
+                    <field name="name"/>
+                    <field name="police"/>
+                    <field name="applies_to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_stnk_form_view">
+            <field name="name">dtbs.stnk.form</field>
+            <field name="model">dtbs.carrent.stnk</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle Registration Cards">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Vehicle Registration Cards Number" />
+                            <h1>
+                                <field name="name" />
+                            </h1>
+                            <label for="police" string="Police Number" />
+                            <h2>
+                                <field name="police" />
+                            </h2>
+                        </div>
+
+                        <group>
+                            <field name="applies_to"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_stnk_search_view">
+            <field name="name">dtbs.stnk.search</field>
+            <field name="model">dtbs.carrent.stnk</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="police"/>
+                    <field name="applies_to"/>
+                    <filter name="vrc_due" string="Due date within 1 month from now"
+                            domain="[('applies_to', '&lt;=', (context_today()  + relativedelta(months=1, weeks=-1)).strftime('%Y-%m-%d'))]"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_stnk_list_action">
+            <field name="name">Vehicle Registration Cards</field>
+            <field name="res_model">dtbs.carrent.stnk</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_vrc_due': 1}"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Vehicle Registration Cards here
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="vrc_menu" name="VRC (STNK)" parent="ownership_menu"
+                  sequence="2"
+                  action="dtbs_stnk_list_action"/>
+
+
+        <!-- ============= PERPANJANGAN STNK =================== -->
+        <record model="ir.ui.view" id="dtbs_renewal_tree_view">
+            <field name="name">dtbs.renewal.tree</field>
+            <field name="model">dtbs.carrent.stnk.renewal</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="dtbs_renewal_tree" toolbar="1">
+                    <field name="no_fak"/>
+                    <field name="vrc_id"/>
+                    <field name="police"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_renewal_form_view">
+            <field name="name">dtbs.renewal.form</field>
+            <field name="model">dtbs.carrent.stnk.renewal</field>
+            <field name="arch" type="xml">
+                <form string="VRC Renewal">
+                    <header>
+                        <button name="confirm" type="workflow" string="Confirm" states="draft" class="oe_highlight"/>
+                        <button name="process" type="workflow" string="Process" states="confirm" class="oe_highlight" groups="carrent_ownership.group_carrent_own_manager"/>
+                        <button name="cancel" type="workflow" string="Cancel" states="confirm,process"/>
+                        <button name="done" type="workflow" string="Done" states="process" class="oe_highlight" groups="carrent_ownership.group_carrent_own_manager"/> 
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="no_fak" string="Renewal Number" />
+                            <h1>
+                                <field name="no_fak" />
+                            </h1>
+                            <label for="vrc_id" string="VRC Number" />
+                            <h2>
+                                <field name="vrc_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            </h2>
+                        </div>
+
+                         <group>
+                            <field name="police"/>
+                        </group> 
+                        <group>
+                            <group>
+                                <field name="date_process" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            </group>
+                            <group>
+                                <field name="by" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Detail Process">
+                                <group>
+                                    <field name="expense" attrs="{'readonly': [('state', 'in', ['done','cancel'])]}"/>
+                                    <field name="due" attrs="{'readonly': [('state', 'in', ['done','cancel'])]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_renewal_search_view">
+            <field name="name">dtbs.renewal.search</field>
+            <field name="model">dtbs.carrent.stnk.renewal</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="no_fak"/>
+                    <field name="vrc_id"/>
+                    <field name="police"/>
+                    <field name="state"/>
+                    <field name="date_process"/>
+                    <field name="by"/>
+                    <field name="expense"/>
+                    <field name="due"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_renewal_list_action">
+            <field name="name">VRC Renewal</field>
+            <field name="res_model">dtbs.carrent.stnk.renewal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new VRC Renewal here
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="vrc_renewal_menu" name="VRC Renewal" parent="renewal_menu"
+                  sequence="1"
+                  action="dtbs_renewal_list_action"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data noupdate="1">
+    <!-- #################################################################################################### -->
+    <record id="carrent_booking.configuration" model="dtbs.booking.configuration.data">
+      <field name="default_auto_booking_mail">FALSE</field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

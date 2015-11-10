@@ -1,0 +1,488 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* carrent_ownership
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-26 06:42+0000\n"
+"PO-Revision-Date: 2015-10-26 06:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: carrent_ownership
+#: model:ir.actions.act_window,help:carrent_ownership.dtbs_renewal_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new VRC Renewal here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.actions.act_window,help:carrent_ownership.dtbs_stnk_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new Vehicle Registration Cards here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.actions.act_window,help:carrent_ownership.dtbs_bpkb_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new legal ownership here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,address:0
+msgid "Address"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk,applies_to:0
+msgid "Applies To"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,assembly_year:0
+msgid "Assembly (Year)"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.model,name:carrent_ownership.model_dtbs_carrent_bpkb
+msgid "BPKB"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,brand_id:0
+msgid "Brand"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: carrent_ownership
+#: selection:dtbs.carrent.stnk.renewal,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.module.category,name:carrent_ownership.category_group_carrent_own_user
+msgid "Car Rental Ownership"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.module.category,description:carrent_ownership.category_group_carrent_own_user
+msgid "Car Rental Ownership is use to maintenance vehicle legal."
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,chassis:0
+msgid "Chassis Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,color_id:0
+msgid "Color"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+#: selection:dtbs.carrent.stnk.renewal,state:0
+msgid "Confirm"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,create_year:0
+msgid "Created (Year)"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,create_uid:0
+#: field:dtbs.carrent.stnk,create_uid:0
+#: field:dtbs.carrent.stnk.renewal,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,create_date:0
+#: field:dtbs.carrent.stnk,create_date:0
+#: field:dtbs.carrent.stnk.renewal,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: carrent_ownership
+#: help:dtbs.carrent.stnk.renewal,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+msgid "Detail Process"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+#: selection:dtbs.carrent.stnk.renewal,state:0
+msgid "Done"
+msgstr ""
+
+#. module: carrent_ownership
+#: selection:dtbs.carrent.stnk.renewal,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk:carrent_ownership.dtbs_stnk_search_view
+msgid "Due date within 1 month from now"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,fuel:0
+msgid "Fuel"
+msgstr ""
+
+#. module: carrent_ownership
+#: help:dtbs.carrent.stnk.renewal,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,id:0
+#: field:dtbs.carrent.stnk,id:0
+#: field:dtbs.carrent.stnk.renewal,id:0
+msgid "ID"
+msgstr ""
+
+#. module: carrent_ownership
+#: help:dtbs.carrent.stnk.renewal,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,job:0
+msgid "Job"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,car_kind:0
+msgid "Kind"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,write_uid:0
+#: field:dtbs.carrent.stnk,write_uid:0
+#: field:dtbs.carrent.stnk.renewal,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,write_date:0
+#: field:dtbs.carrent.stnk,write_date:0
+#: field:dtbs.carrent.stnk.renewal,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.actions.act_window,name:carrent_ownership.dtbs_bpkb_list_action
+#: model:ir.ui.menu,name:carrent_ownership.ownership_menu
+msgid "Legal Ownership"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,machine:0
+msgid "Machine Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:res.groups,name:carrent_ownership.group_carrent_own_manager
+msgid "Manager"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: carrent_ownership
+#: help:dtbs.carrent.stnk.renewal,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,model_id:0
+msgid "Model"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,due:0
+msgid "Next Due Date"
+msgstr ""
+
+#. module: carrent_ownership
+#: selection:dtbs.carrent.stnk.renewal,state:0
+msgid "On Process"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,owner_name:0
+msgid "Owner Name"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.unit:carrent_ownership.view_unit_form_inherited
+msgid "Ownership"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.ui.menu,name:carrent_ownership.legal_menu
+msgid "PMVO (BPKB)"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,name:0
+#: field:dtbs.carrent.unit,bpkb_id:0
+msgid "PMVO Number (BPKB)"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,period_test:0
+msgid "Periodically test number"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.model,name:carrent_ownership.model_dtbs_carrent_stnk_renewal
+msgid "Perpanjangan STNK"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.bpkb:carrent_ownership.dtbs_bpkb_form_view
+#: field:dtbs.carrent.bpkb,police:0
+#: view:dtbs.carrent.stnk:carrent_ownership.dtbs_stnk_form_view
+#: field:dtbs.carrent.stnk,police:0
+#: field:dtbs.carrent.stnk.renewal,police:0
+msgid "Police Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+msgid "Process"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,by:0
+msgid "Processed By"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,date_process:0
+msgid "Processed On"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.bpkb:carrent_ownership.dtbs_bpkb_form_view
+msgid "Proof of Motorized Vehicle Ownership"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.bpkb:carrent_ownership.dtbs_bpkb_form_view
+msgid "Proof of Motorized Vehicle Ownership Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.ui.menu,name:carrent_ownership.renewal_menu
+msgid "Renewal"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:mail.message.subtype,name:carrent_ownership.mt_renewal_new
+msgid "Renewal Created"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+#: field:dtbs.carrent.stnk.renewal,no_fak:0
+msgid "Renewal Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:mail.message.subtype,description:carrent_ownership.mt_renewal_new
+msgid "Renewal created"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.model,name:carrent_ownership.model_dtbs_carrent_stnk
+msgid "STNK"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,silinder:0
+msgid "Silinder"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:mail.message.subtype,name:carrent_ownership.mt_renewal_stage
+msgid "Stage Changed"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:mail.message.subtype,description:carrent_ownership.mt_renewal_stage
+msgid "Stage changed"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,state:0
+msgid "Status"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: carrent_ownership
+#: sql_constraint:dtbs.carrent.bpkb:0
+msgid "The Proof of Motorized Vehicle Ownership must be unique"
+msgstr ""
+
+#. module: carrent_ownership
+#: sql_constraint:dtbs.carrent.stnk:0
+msgid "The Proof of Vehicle Registration Cards must be unique"
+msgstr ""
+
+#. module: carrent_ownership
+#: sql_constraint:dtbs.carrent.stnk.renewal:0
+msgid "The Renewal Number must be unique"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,axes:0
+msgid "The number of axes"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,wheels:0
+msgid "The number of wheels"
+msgstr ""
+
+#. module: carrent_ownership
+#: sql_constraint:dtbs.carrent.bpkb:0
+#: sql_constraint:dtbs.carrent.stnk:0
+msgid "The police number must be unique"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,expense:0
+msgid "Total Expenditures"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,car_type:0
+msgid "Type"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.bpkb,cetificate_test:0
+msgid "Type test certificate number"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk.renewal,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:res.groups,name:carrent_ownership.group_carrent_own_user
+msgid "User"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.ui.menu,name:carrent_ownership.vrc_menu
+msgid "VRC (STNK)"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+#: field:dtbs.carrent.stnk.renewal,vrc_id:0
+msgid "VRC Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: field:dtbs.carrent.stnk,name:0
+#: field:dtbs.carrent.unit,stnk_id:0
+msgid "VRC Number (STNK)"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_form_view
+#: model:ir.actions.act_window,name:carrent_ownership.dtbs_renewal_list_action
+#: model:ir.ui.menu,name:carrent_ownership.vrc_renewal_menu
+msgid "VRC Renewal"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:ir.model,name:carrent_ownership.model_dtbs_carrent_unit
+msgid "Vehicle"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.bpkb:carrent_ownership.dtbs_bpkb_form_view
+msgid "Vehicle Identity"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk:carrent_ownership.dtbs_stnk_form_view
+#: model:ir.actions.act_window,name:carrent_ownership.dtbs_stnk_list_action
+msgid "Vehicle Registration Cards"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk:carrent_ownership.dtbs_stnk_form_view
+msgid "Vehicle Registration Cards Number"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.bpkb:carrent_ownership.dtbs_bpkb_tree_view
+msgid "dtbs_bpkb_tree"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk.renewal:carrent_ownership.dtbs_renewal_tree_view
+msgid "dtbs_renewal_tree"
+msgstr ""
+
+#. module: carrent_ownership
+#: view:dtbs.carrent.stnk:carrent_ownership.dtbs_stnk_tree_view
+msgid "dtbs_stnk_tree"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:res.groups,comment:carrent_ownership.group_carrent_own_manager
+msgid "the manager will have access to approve the VRC Renewal"
+msgstr ""
+
+#. module: carrent_ownership
+#: model:res.groups,comment:carrent_ownership.group_carrent_own_user
+msgid "the user will have access to create, edit and delete data"
+msgstr ""
+

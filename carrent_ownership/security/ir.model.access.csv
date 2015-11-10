@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+carrent_own_unit_user,unit user,model_dtbs_carrent_unit,group_carrent_own_user,1,1,1,1
+carrent_own_pmvo_user,pmvo user,model_dtbs_carrent_bpkb,group_carrent_own_user,1,1,1,1
+carrent_own_rvc_user,rvc user,model_dtbs_carrent_stnk,group_carrent_own_user,1,1,1,1
+carrent_own_renewal_user,renewal user,model_dtbs_carrent_stnk_renewal,group_carrent_own_user,1,1,1,1
+carrent_own_unit_manager,unit manager,model_dtbs_carrent_unit,group_carrent_own_manager,1,1,1,1
+carrent_own_pmvo_manager,pmvo manager,model_dtbs_carrent_bpkb,group_carrent_own_manager,1,1,1,1
+carrent_own_rvc_manager,rvc manager,model_dtbs_carrent_stnk,group_carrent_own_manager,1,1,1,1
+carrent_own_renewal_manager,renewal manager,model_dtbs_carrent_stnk_renewal,group_carrent_own_manager,1,1,1,1

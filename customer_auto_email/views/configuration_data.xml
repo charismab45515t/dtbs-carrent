@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data noupdate="1">
+    <!-- #################################################################################################### -->
+    <record id="customer_auto_email.configuration" model="dtbs.automail.configuration.data">
+      <field name="default_auto_mail">FALSE</field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

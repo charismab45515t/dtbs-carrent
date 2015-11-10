@@ -1,0 +1,214 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* carrent_booking_charge
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-23 19:02+0700\n"
+"PO-Revision-Date: 2015-10-23 19:07+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Language: id\n"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,comment:0
+msgid "Additional Information"
+msgstr "Informasi Tambahan"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: model:ir.actions.act_window,name:carrent_booking_charge.dtbs_booking_charge_list_action
+#: model:ir.model,name:carrent_booking_charge.model_dtbs_carrent_booking_charge
+msgid "Booking Charge"
+msgstr "Denda Pemesanan"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,booking_id:0
+msgid "Booking Number"
+msgstr "Nomor Pemesanan"
+
+#. module: carrent_booking_charge
+#: model:ir.model,name:carrent_booking_charge.model_dtbs_carrent_return_wizard
+msgid "Booking Return Wizard"
+msgstr "Wizard Pengembalian"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: field:dtbs.carrent.booking.charge,no_fak:0
+msgid "Charge Number"
+msgstr "Nomor"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge.setting:carrent_booking_charge.dtbs_booking_charge_setting_form_view
+#: view:dtbs.carrent.booking.charge.setting:carrent_booking_charge.dtbs_booking_charge_setting_tree_view
+#: model:ir.model,name:carrent_booking_charge.model_dtbs_carrent_booking_charge_setting
+msgid "Charge Setting"
+msgstr "Pengaturan Denda"
+
+#. module: carrent_booking_charge
+#: model:ir.actions.act_window,name:carrent_booking_charge.dtbs_booking_charge_setting_action
+#: model:ir.ui.menu,name:carrent_booking_charge.charge_setting_menu
+msgid "Charge Settings"
+msgstr "Pengaturan Denda"
+
+#. module: carrent_booking_charge
+#: model:ir.ui.menu,name:carrent_booking_charge.booking_charge_menu
+#: model:ir.ui.menu,name:carrent_booking_charge.charge_menu
+#: model:ir.ui.menu,name:carrent_booking_charge.t_charge_menu
+msgid "Charges"
+msgstr "Denda"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,company_id:0
+msgid "Company"
+msgstr "Perusahaan"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+msgid "Create Invoice"
+msgstr "Buat Tagihan"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,create_uid:0
+#: field:dtbs.carrent.booking.charge.setting,create_uid:0
+msgid "Created by"
+msgstr "Dibuat oleh"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,create_date:0
+#: field:dtbs.carrent.booking.charge.setting,create_date:0
+msgid "Created on"
+msgstr "Dibuat pada"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_search_view
+#: field:dtbs.carrent.booking.charge,customer_id:0
+msgid "Customer"
+msgstr "Pelanggan"
+
+#. module: carrent_booking_charge
+#: selection:dtbs.carrent.booking.charge,state:0
+msgid "Draft"
+msgstr "Draf"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,date_end:0
+msgid "Estimated Date End"
+msgstr "Perkiraan Tanggal Akhir"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: selection:dtbs.carrent.booking.charge,state:0
+msgid "Exception"
+msgstr "Pengecualian"
+
+#. module: carrent_booking_charge
+#. openerp-web
+#: code:addons/carrent_booking_charge/static/src/js/carrent_unit_summary.js:9
+#, python-format
+msgid "Form"
+msgstr "Formulir"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_search_view
+msgid "Group By"
+msgstr "Berdasarkan"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,id:0
+#: field:dtbs.carrent.booking.charge.setting,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: view:dtbs.carrent.booking.charge.setting:carrent_booking_charge.dtbs_booking_charge_setting_form_view
+msgid "Information"
+msgstr "Informasi"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+#: field:dtbs.carrent.booking.charge,invoice_id:0
+msgid "Invoice"
+msgstr "Tagihan"
+
+#. module: carrent_booking_charge
+#: selection:dtbs.carrent.booking.charge,state:0
+msgid "Invoiced"
+msgstr "Ditagihkan"
+
+#. module: carrent_booking_charge
+#: field:product.template,ischarge:0
+msgid "Is Charge"
+msgstr "Denda"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,write_uid:0
+#: field:dtbs.carrent.booking.charge.setting,write_uid:0
+msgid "Last Updated by"
+msgstr "Diubah Terakhir oleh"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,write_date:0
+#: field:dtbs.carrent.booking.charge.setting,write_date:0
+msgid "Last Updated on"
+msgstr "Diubah Terakhir pada"
+
+#. module: carrent_booking_charge
+#: model:product.template,name:carrent_booking_charge.booking_charge_consultant_product_template
+msgid "Late Charge"
+msgstr "Denda Terlambat"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge.setting:carrent_booking_charge.dtbs_booking_charge_setting_form_view
+msgid "Name"
+msgstr "Nama"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_search_view
+msgid "New"
+msgstr "Baru"
+
+#. module: carrent_booking_charge
+#: model:ir.model,name:carrent_booking_charge.model_product_template
+msgid "Product Template"
+msgstr "Template Produk"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge.setting,product_id:0
+msgid "Product_id"
+msgstr "ID Produk"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,real_date_end:0
+msgid "Real Returned Date"
+msgstr "Tanggal Pengembalian Real"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_form_view
+msgid "Recreate Invoice"
+msgstr "Buat Ulang Tagihan"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_search_view
+#: field:dtbs.carrent.booking.charge,state:0
+msgid "Status"
+msgstr "Status"
+
+#. module: carrent_booking_charge
+#: field:dtbs.carrent.booking.charge,late:0
+msgid "Time (day)"
+msgstr "Waktu (hari)"
+
+#. module: carrent_booking_charge
+#: view:dtbs.carrent.booking.charge:carrent_booking_charge.dtbs_booking_charge_tree_view
+msgid "dtbs_booking_charge_tree"
+msgstr "dtbs_booking_denda_pohon"

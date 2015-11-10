@@ -1,0 +1,15 @@
+<openerp>
+    <data>
+		<record model="ir.module.category" id="category_group_carrent_user">
+			<field name="name">Car Rental Basic</field>
+			<field name="description">Car Rental Basic is containing master data of this application.</field>
+			<field name="sequence">20</field>
+		</record>
+        <record id="group_carrent_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="comment">the user will have access to create, edit and delete data</field>
+			<field name="category_id" ref="category_group_carrent_user"/>
+        </record>
+    </data>
+</openerp>
+

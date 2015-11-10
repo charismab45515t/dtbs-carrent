@@ -1,0 +1,88 @@
+<openerp>
+    <data noupdate="1">
+        <record model="workflow" id="wkf_Booking">
+            <field name="name">Car Rental Booking Workflow</field>
+            <field name="osv">dtbs.carrent.booking</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record model="workflow.activity" id="draft">
+            <field name="name">Draft</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_start" eval="True"/>
+        </record>
+        <record model="workflow.activity" id="confirm">
+            <field name="name">Confirm</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="kind">function</field>
+            <field name="action">confirmed_booking()</field>
+        </record>
+        <record model="workflow.activity" id="sale">
+            <field name="name">Sale to Invoice</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="kind">function</field>
+            <field name="action">sale_booking()</field>
+        </record>
+        <record model="workflow.activity" id="rent">
+            <field name="name">On Rent</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="kind">function</field>
+            <field name="action">rented_booking()</field>
+        </record>
+        <record model="workflow.activity" id="cancel">
+            <field name="name">Cancelled</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_stop" eval="True"/>
+            <field name="kind">function</field>
+            <field name="action">cancelled_booking()</field>
+        </record>
+        <record model="workflow.activity" id="return">
+            <field name="name">Returned</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_stop" eval="True"/>
+            <field name="kind">function</field>
+            <field name="action">return_booking()</field>
+        </record>
+
+
+        <record model="workflow.transition" id="booking_draft_to_confirm">
+            <field name="act_from" ref="draft"/>
+            <field name="act_to" ref="confirm"/>
+            <field name="signal">confirm</field>
+        </record>
+        <record model="workflow.transition" id="booking_confirm_to_sale">
+            <field name="act_from" ref="confirm"/>
+            <field name="act_to" ref="sale"/>
+            <field name="signal">sale</field>
+        </record>
+        <record model="workflow.transition" id="booking_sale_to_rent">
+            <field name="act_from" ref="sale"/>
+            <field name="act_to" ref="rent"/>
+            <field name="signal">rent</field>
+        </record>
+        <record model="workflow.transition" id="booking_confirm_to_cancel">
+            <field name="act_from" ref="confirm"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">cancel</field>
+        </record>
+        <record model="workflow.transition" id="booking_sale_to_cancel">
+            <field name="act_from" ref="sale"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">cancelsale</field>
+        </record>
+        <record model="workflow.transition" id="booking_rent_to_cancel">
+            <field name="act_from" ref="rent"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">cancelrent</field>
+        </record>
+        <record model="workflow.transition" id="booking_rent_to_return">
+            <field name="act_from" ref="rent"/>
+            <field name="act_to" ref="return"/>
+            <field name="signal">return</field>
+        </record>
+
+    </data>
+
+
+</openerp>
+

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  	<data>
+    	<!-- Configuration -->
+    	<menuitem id="csmart_base" name="CSmart" parent="base.menu_administration" sequence="1"/>
+  	</data>
+</openerp>

@@ -1,0 +1,662 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* carrent_booking
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-26 06:16+0000\n"
+"PO-Revision-Date: 2015-10-26 06:16+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: carrent_booking
+#: model:email.template,body_html:carrent_booking.email_template_booking_confirm
+msgid "\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p>Yth. ${object.customer_id.name},</p>\n"
+"\n"
+"    <p>Terimakasih anda telah menggunakan layanan kami.</p>\n"
+"\n"
+"    <p>Berikut ini adalah detail permohonan layanan yang telah anda lakukan :</p>\n"
+"    \n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>REFERENSI</strong><br>\n"
+"       &nbsp;&nbsp;Nomor order: <strong>${object.no_book}</strong><br>\n"
+"       &nbsp;&nbsp;Tanggal order: <strong>${object.date_order}</strong><br>\n"
+"       &nbsp;&nbsp;Atas nama: ${object.customer_id.name}<br>\n"
+"       % if object.partner_order_id:\n"
+"       &nbsp;&nbsp;Contact person: ${object.partner_order_id.name}<br>\n"
+"       % endif\n"
+"       % if object.partner_invoice_id:\n"
+"       &nbsp;&nbsp;Invoice ke: ${object.partner_invoice_id.name}<br>\n"
+"       % endif\n"
+"       % if object.partner_shipping_id:\n"
+"       &nbsp;&nbsp;Kirim ke: ${object.partner_shipping_id.name}<br>\n"
+"       % endif\n"
+"    </p>  \n"
+"    <br>\n"
+"    <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"       &nbsp;&nbsp;<strong>DETAIL</strong><br>\n"
+"       &nbsp;&nbsp;Unit: <strong>${object.unit_id.product_id.name}</strong><br>\n"
+"       &nbsp;&nbsp;Nomor Polisi: ${object.police}<br>\n"
+"       &nbsp;&nbsp;Tanggal sewa: ${object.date_rent}<br>\n"
+"       &nbsp;&nbsp;Jangka waktu: ${object.estimation_time} ${object.time_selection}<br>\n"
+"       &nbsp;&nbsp;Tanggal kembali: ${object.date_end}<br>\n"
+"    </p>\n"
+"   \n"
+"    <br>\n"
+"    <p>Jika anda ada pertanyaan lain, jangan ragu untuk menghubungi kami.</p>\n"
+"    <p>Terimakasih telah memilih ${object.company_id.partner_id.name or 'us'}!</p>\n"
+"    <br>\n"
+"    <br>\n"
+"    <div style=\"width: 375px; margin: 0px; padding: 0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id.partner_id.name}</strong></h3>\n"
+"    </div>\n"
+"    <div style=\"width: 347px; margin: 0px; padding: 5px 14px; line-height: 16px; background-color: #F2F2F2;\">\n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.partner_id.street:\n"
+"            ${object.company_id.partner_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.partner_id.street2:\n"
+"            ${object.company_id.partner_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.partner_id.city or object.company_id.partner_id.zip:\n"
+"            ${object.company_id.partner_id.zip} ${object.company_id.partner_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.partner_id.country_id:\n"
+"            ${object.company_id.partner_id.state_id and ('%s, ' % object.company_id.partner_id.state_id.name) or ''} ${object.company_id.partner_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.partner_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; \">\n"
+"                Phone:&nbsp; ${object.company_id.partner_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.partner_id.website:\n"
+"            <div>\n"
+"                Web :&nbsp;<a href=\"${object.company_id.partner_id.website}\">${object.company_id.partner_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        <p></p>\n"
+"    </div>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.actions.act_window,help:carrent_booking.dtbs_booking_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new Booking here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,default_auto_booking_mail:0
+#: field:dtbs.booking.settings,default_auto_booking_mail:0
+msgid "Allow Send Booking Mail Automatically to Customer"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,module_carrent_booking_charge:0
+#: field:dtbs.booking.settings,module_carrent_booking_charge:0
+msgid "Allow to manage charge"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,module_carrent_booking_discount:0
+#: field:dtbs.booking.settings,module_carrent_booking_discount:0
+msgid "Allow to manage discount"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "Apply"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.unit.booking.line,state:0
+msgid "Assigned"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,auto_mail:0
+msgid "Auto Mail"
+msgstr ""
+
+#. module: carrent_booking
+#: code:addons/carrent_booking/model/booking.py:391
+#, python-format
+msgid "Before choosing a product,\n"
+" select a customer in the sales form."
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: field:dtbs.carrent.unit.booking.line,booking_id:0
+#: model:ir.actions.act_window,name:carrent_booking.dtbs_booking_list_action
+#: model:ir.model,name:carrent_booking.model_dtbs_carrent_booking
+#: field:sale.order.line,no_book:0
+msgid "Booking"
+msgstr ""
+
+#. module: carrent_booking
+#: model:email.template,subject:carrent_booking.email_template_booking_confirm
+msgid "Booking ${object.no_book}"
+msgstr ""
+
+#. module: carrent_booking
+#: model:mail.message.subtype,name:carrent_booking.mt_booking_stage
+msgid "Booking Changed"
+msgstr ""
+
+#. module: carrent_booking
+#: model:mail.message.subtype,name:carrent_booking.mt_booking_new
+msgid "Booking Created"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "Booking Mail to Customer"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: field:dtbs.carrent.booking,no_book:0
+msgid "Booking Number"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.ui.menu,name:carrent_booking.booking_rent_menu
+msgid "Booking Rent"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.actions.act_window,name:carrent_booking.action_dtbs_carrent_booking_return
+#: model:ir.model,name:carrent_booking.model_dtbs_carrent_return_wizard
+msgid "Booking Return Wizard"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.actions.act_window,name:carrent_booking.act_dtbs_booking_settings
+#: model:ir.ui.menu,name:carrent_booking.dtbs_booking_main
+msgid "Booking Settings"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking.summary:carrent_booking.carrent_booking_summary_form_view
+#: model:ir.ui.menu,name:carrent_booking.summary_menu
+msgid "Booking Summary"
+msgstr ""
+
+#. module: carrent_booking
+#: model:mail.message.subtype,description:carrent_booking.mt_booking_stage
+msgid "Booking changed"
+msgstr ""
+
+#. module: carrent_booking
+#: model:mail.message.subtype,description:carrent_booking.mt_booking_new
+msgid "Booking created"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: view:dtbs.carrent.return.wizard:carrent_booking.dtbs_carrent_booking_return_wizard_view
+msgid "Cancel"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,state:0
+msgid "Cancelled"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: selection:dtbs.carrent.booking,state:0
+msgid "Confirm"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+msgid "Create Quotation"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,create_uid:0
+#: field:dtbs.booking.settings,create_uid:0
+#: field:dtbs.carrent.booking,create_uid:0
+#: field:dtbs.carrent.booking.summary,create_uid:0
+#: field:dtbs.carrent.return.wizard,create_uid:0
+#: field:dtbs.carrent.unit.booking.line,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,create_date:0
+#: field:dtbs.booking.settings,create_date:0
+#: field:dtbs.carrent.booking,create_date:0
+#: field:dtbs.carrent.booking.summary,create_date:0
+#: field:dtbs.carrent.return.wizard,create_date:0
+#: field:dtbs.carrent.unit.booking.line,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,sale_price_currency_id:0
+msgid "Currency"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: field:dtbs.carrent.booking,customer_id:0
+msgid "Customer"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking.summary,date_from:0
+msgid "Date From"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,date_order:0
+msgid "Date Ordered"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,date_rent:0
+msgid "Date Rent"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,date_return:0
+#: field:dtbs.carrent.return.wizard,date_return:0
+msgid "Date Return"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking.summary,date_to:0
+msgid "Date To"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,message_last_post:0
+msgid "Date of the last message posted on the record."
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,time_selection:0
+msgid "Day(s)"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,partner_shipping_id:0
+msgid "Delivery Address"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,partner_shipping_id:0
+msgid "Delivery address for current booking."
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.unit.booking.line,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,date_end:0
+msgid "Estimated Date End"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,estimation_time:0
+msgid "Estimated Time(s)"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "Features"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_follower_ids:0
+msgid "Followers"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+msgid "Force Running"
+msgstr ""
+
+#. module: carrent_booking
+#. openerp-web
+#: code:addons/carrent_booking/static/src/js/carrent_unit_summary.js:9
+#, python-format
+msgid "Form"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,message_summary:0
+msgid "Holds the Chatter summary (number of messages, ...). This summary is directly in html format in order to be inserted in kanban views."
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,id:0
+#: field:dtbs.booking.settings,id:0
+#: field:dtbs.carrent.booking,id:0
+#: field:dtbs.carrent.booking.summary,id:0
+#: field:dtbs.carrent.return.wizard,id:0
+#: field:dtbs.carrent.unit.booking.line,id:0
+msgid "ID"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,message_unread:0
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,time_selection:0
+msgid "In"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,partner_invoice_id:0
+msgid "Invoice Address"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,partner_invoice_id:0
+msgid "Invoice address for current booking."
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_is_follower:0
+msgid "Is a Follower"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_last_post:0
+msgid "Last Message Date"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,write_uid:0
+#: field:dtbs.booking.settings,write_uid:0
+#: field:dtbs.carrent.booking,write_uid:0
+#: field:dtbs.carrent.booking.summary,write_uid:0
+#: field:dtbs.carrent.return.wizard,write_uid:0
+#: field:dtbs.carrent.unit.booking.line,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.booking.configuration.data,write_date:0
+#: field:dtbs.booking.settings,write_date:0
+#: field:dtbs.carrent.booking,write_date:0
+#: field:dtbs.carrent.booking.summary,write_date:0
+#: field:dtbs.carrent.return.wizard,write_date:0
+#: field:dtbs.carrent.unit.booking.line,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "Manage Charge"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "Manage Discount"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_ids:0
+msgid "Messages"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,message_ids:0
+msgid "Messages and communication history"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,time_selection:0
+msgid "Month(s)"
+msgstr ""
+
+#. module: carrent_booking
+#: code:addons/carrent_booking/model/booking.py:391
+#, python-format
+msgid "No Customer Defined!"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,state:0
+msgid "On Rent"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+msgid "Order Information"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,partner_order_id:0
+msgid "Ordering Contact"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,police:0
+msgid "Police Number"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,price:0
+#: field:dtbs.carrent.booking,sale_price:0
+msgid "Price"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,pricelist:0
+msgid "Price Segmentation"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,price_by_uom:0
+msgid "Price by UOM"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,quotation:0
+msgid "Quotation"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.ui.menu,name:carrent_booking.booking_menu
+msgid "Rental"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+msgid "Rental Detail"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+#: selection:dtbs.carrent.booking,state:0
+#: view:dtbs.carrent.return.wizard:carrent_booking.dtbs_carrent_booking_return_wizard_view
+msgid "Returned"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,state:0
+msgid "Sale to Invoice"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,sales_order_id:0
+#: model:ir.model,name:carrent_booking.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.model,name:carrent_booking.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_form_view
+msgid "Send by Email"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.unit.booking.line,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,state:0
+msgid "Status"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_summary:0
+msgid "Summary"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking.summary,summary_header:0
+msgid "Summary Header"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking.summary:carrent_booking.carrent_booking_summary_form_view
+msgid "Summary Period"
+msgstr ""
+
+#. module: carrent_booking
+#: sql_constraint:dtbs.carrent.booking:0
+msgid "The Booking Number must be unique"
+msgstr ""
+
+#. module: carrent_booking
+#: help:dtbs.carrent.booking,partner_order_id:0
+msgid "The name and address of the contact that requested the order or quotation."
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.unit.booking.line,state:0
+msgid "Unassigned"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,unit_id:0
+#: field:dtbs.carrent.unit.booking.line,unit_id:0
+msgid "Unit"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.unit:carrent_booking.carrent_unit_form_inherited_view
+#: model:ir.model,name:carrent_booking.model_dtbs_carrent_unit_booking_line
+msgid "Unit Booking"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.unit:carrent_booking.carrent_unit_form_inherited_view
+#: field:dtbs.carrent.unit,carrent_booking_unit_ids:0
+msgid "Unit Booking Line"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking.summary:carrent_booking.carrent_booking_summary_form_view
+#: model:ir.actions.act_window,name:carrent_booking.action_carrent_booking_summary
+msgid "Unit Booking Summary"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.return.wizard:carrent_booking.dtbs_carrent_booking_return_wizard_view
+msgid "Unit Return"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.unit.booking.line,state:0
+msgid "Unit Status"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking.summary:carrent_booking.carrent_booking_summary_form_view
+#: field:dtbs.carrent.booking.summary,unit_summary:0
+msgid "Unit Summary"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.model,name:carrent_booking.model_dtbs_carrent_booking_summary
+msgid "Unit booking summary"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.unit:carrent_booking.carrent_unit_form_inherited_view
+msgid "Unit line"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,sale_uom:0
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: carrent_booking
+#: field:dtbs.carrent.booking,message_unread:0
+msgid "Unread Messages"
+msgstr ""
+
+#. module: carrent_booking
+#: model:ir.model,name:carrent_booking.model_dtbs_carrent_unit
+msgid "Vehicle"
+msgstr ""
+
+#. module: carrent_booking
+#: selection:dtbs.carrent.booking,time_selection:0
+msgid "Year(s)"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+msgid "dtbs.booking.settings.form"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking:carrent_booking.dtbs_booking_tree_view
+msgid "dtbs_booking_tree"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.booking.settings:carrent_booking.view_dtbs_booking_settings_form
+#: view:dtbs.carrent.return.wizard:carrent_booking.dtbs_carrent_booking_return_wizard_view
+msgid "or"
+msgstr ""
+
+#. module: carrent_booking
+#: view:dtbs.carrent.booking.summary:carrent_booking.carrent_booking_summary_form_view
+msgid "to"
+msgstr ""
+

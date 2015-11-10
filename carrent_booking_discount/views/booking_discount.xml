@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- <menuitem id="t_discount_menu" name="Discount" parent="carrent.main_carrent_menu" sequence="400"/> -->
+        <menuitem id="discount_menu" name="Discount" parent="carrent.config_menu" sequence="705"/>
+
+        <!-- ======================= DISCOUNT SETTING ================== -->
+        <record model="ir.ui.view" id="dtbs_booking_discount_setting_form_view">
+            <field name="name">dtbs.booking.discount.setting.form</field>
+            <field name="model">dtbs.carrent.booking.discount.setting</field>
+            <field name="arch" type="xml">
+                <form string="Discount Setting" >
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" />
+                            <h2>
+                                <field name="name"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="currency_id"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="isactive"/>
+                                <field name="customer_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Discount Lines">
+                                <field name="discount_line"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_discount_setting_tree_view">
+            <field name="name">dtbs.booking.discount.setting.tree</field>
+            <field name="model">dtbs.carrent.booking.discount.setting</field>
+            <field name="arch" type="xml">
+                <tree string="Discount Setting">
+                    <field name="name"/>
+                    <field name="currency_id"/>
+                    <field name="company_id"/>
+                    <field name="customer_id"/>
+                    <field name="isactive"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_discount_setting_search_view">
+            <field name="name">dtbs.booking.discount.setting.search</field>
+            <field name="model">dtbs.carrent.booking.discount.setting</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="currency_id"/>
+                    <field name="company_id"/>
+                    <field name="customer_id"/>
+                    <field name="isactive"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_booking_discount_setting_action">
+            <field name="name">Discount Settings</field>
+            <field name="res_model">dtbs.carrent.booking.discount.setting</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="discount_setting_menu" name="Discount Settings" parent="discount_menu"
+                  sequence="1"
+                  action="dtbs_booking_discount_setting_action"/>
+
+
+        <!-- ======================= DISCOUNT LINES SETTING ================== -->
+        <record model="ir.ui.view" id="dtbs_booking_discount_line_setting_form_view">
+            <field name="name">dtbs.booking.discount.line.setting.form</field>
+            <field name="model">dtbs.carrent.discount.line.setting</field>
+            <field name="arch" type="xml">
+                <form string="Discount Line Setting" >
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="unit_model"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_start"/>
+                            </group>
+                            <group>
+                                <field name="date_end"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="persentage"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_discount_line_setting_tree_view">
+            <field name="name">dtbs.booking.discount.line.setting.tree</field>
+            <field name="model">dtbs.carrent.discount.line.setting</field>
+            <field name="arch" type="xml">
+                <tree string="Discount Line Setting">
+                    <field name="unit_model"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="persentage"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- =============== INHERIT BOOKING ================ -->
+        <record model="ir.ui.view" id="carrent_booking_form_inherited_view">
+            <field name="name">carrent.booking.form.inherited.view</field>
+            <field name="model">dtbs.carrent.booking</field>
+            <field name="inherit_id" ref="carrent_booking.dtbs_booking_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Rental Detail']" position="after">
+                    <page string = "Discount">
+                        <group>
+                            <group>
+                                <field name="discount_id" domain="[('isactive','=',True),'|',('customer_id','=',customer_id),('customer_id','=',False)]"/>
+                                <field name="persentage"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>          
+
+    </data>
+</openerp>

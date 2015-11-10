@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data noupdate="1">
+    <!-- #################################################################################################### -->
+    <record id="cron_carrent_booking_line_assign" model="ir.cron">
+      <field name="name">Car Rental Line Auto Assign</field>
+      <field eval="True" name="active"/>
+      <field name="model">dtbs.carrent.booking</field>
+      <field name="function">update_booking_to_rent</field>
+      <field name="args">()</field>
+      <field name="interval_type">days</field>
+      <field name="numbercall">-1</field>
+      <field eval="True" name="doall"/>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- ================== SETTING CONFIGURATION MENU ================ -->
+        <menuitem action="act_dtbs_booking_settings" id="dtbs_booking_main" name="Booking Settings" parent="csmart_base.csmart_base" sequence="10"/>
+
+
+
+        <menuitem id="booking_menu" name="Rental" parent="carrent.main_carrent_menu" sequence="200"/>
+        <!-- <menuitem id="folio_menu" name="Folio" parent="carrent.main_carrent_menu" sequence="300"/> -->
+
+        <!-- ============= BOOKING =================== -->
+        <record model="ir.ui.view" id="dtbs_booking_tree_view">
+            <field name="name">dtbs.booking.tree</field>
+            <field name="model">dtbs.carrent.booking</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="dtbs_booking_tree" toolbar="1" colors="red:state == 'draft'">
+                    <field name="no_book"/>
+                    <field name="customer_id"/>
+                    <field name="date_rent"/>
+                    <field name="unit_id"/>
+                    <field name="police"/>
+                    <field name="state"/>
+                    <!-- <field name="warehouse_id"/> -->
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_form_view">
+            <field name="name">dtbs.booking.form</field>
+            <field name="model">dtbs.carrent.booking</field>
+            <field name="arch" type="xml">
+                <form string="Booking">
+                    <header>
+                        <button name="confirm" type="workflow" string="Confirm" states="draft" class="oe_highlight"/>
+                        <button name="rent" type="workflow" string="Force Running" states="sale" class="oe_highlight"/>
+                        <button name="cancel" type="workflow" string="Cancel" attrs="{'invisible':['|',('quotation','=',True),('state','!=','confirm')]}"/>
+                        <button name="%(action_dtbs_carrent_booking_return)d" type="action" string="Returned" states="rent" class="oe_highlight"/>
+                        <button name="action_confirm_send_mail_manual" string="Send by Email" type="object" class="oe_highlight" attrs="{'invisible':['|',('auto_mail','=',True),('state','!=','confirm')]}"/>
+                        <button name="create_order" type="object" string="Create Quotation" class="oe_highlight" attrs="{'invisible':['|',('sales_order_id','!=', False),('state','!=', 'confirm')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="no_book" string="Booking Number"/>
+                            <h1>
+                                <field name="no_book" />
+                            </h1>
+                            <label for="customer_id" string="Customer"/>
+                            <h3>
+                                <field name="customer_id"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_order_id" domain="[('parent_id','=',customer_id)]"/>
+                                <field name="partner_invoice_id" domain="[('parent_id','=',customer_id)]" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice'}"/>
+                            </group>
+                            <group>
+                                <field name="partner_shipping_id" domain="[('parent_id','=',customer_id)]" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery'}"/>
+                                <!-- <field name="warehouse_id"/> -->
+                                <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_order"/>
+                            </group>
+                            <group>
+                                <field name="date_rent"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Rental Detail">
+                                <group>
+                                    <group>
+                                        <field name="unit_id"/>
+                                        <field name="police"/>
+                                    </group>
+                                    <group>
+                                        <field name="pricelist" groups="product.group_uom"/>
+                                        <field name="price" groups="product.group_uom"/>
+                                        <field name="sale_uom" attrs="{'invisible':[('price_by_uom','=',True)]}"/>
+                                        <field name="sale_price" attrs="{'invisible':[('price_by_uom','=',True)]}"/>
+                                        <field name="price_by_uom" invisible="1"/>
+                                        <field name="auto_mail" invisible="1"/>
+                                        <field name="sale_price_currency_id"/>
+                                        <field name="time_selection" groups="product.group_uom"/>
+                                        <field name="estimation_time" groups="product.group_uom"/>
+                                        <field name="date_end" groups="product.group_uom"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Order Information">
+                                <group>
+                                    <group>
+                                        <field readonly="1" name="sales_order_id"/>
+                                        <field invisible="1" name="quotation"/>
+                                    </group>
+                                    <group>
+                                        <field readonly="1" name="date_return"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_search_view">
+            <field name="name">dtbs.booking.search</field>
+            <field name="model">dtbs.carrent.booking</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="no_book"/>
+                    <field name="customer_id"/>
+                    <field name="state"/>
+                    <field name="date_order"/>
+                    <field name="date_rent"/>
+                    <field name="partner_order_id"/>
+                    <field name="partner_invoice_id"/>
+                    <field name="partner_shipping_id"/>
+                    <field name="unit_id"/>
+                    <field name="police"/>
+                    <field name="pricelist" groups="product.group_uom"/>
+                    <field name="price" groups="product.group_uom"/>
+                    <!-- <field name="warehouse_id"/> -->
+                    <field name="company_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_booking_list_action">
+            <field name="name">Booking</field>
+            <field name="res_model">dtbs.carrent.booking</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create new Booking here
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="booking_rent_menu" name="Booking Rent" parent="booking_menu"
+                  sequence="1"
+                  action="dtbs_booking_list_action"/>
+
+
+        <!-- ============ INHERIT SALES ORDER ================ -->
+        <record id="view_sale_order_form_inherited" model="ir.ui.view">
+            <field name="name">view.sale.order.form.inherited</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//tree[@string='Sales Order Lines']/field[@name='product_id']" position="before">
+                    <field name="no_book" on_change="booking_no_change(no_book,parent.partner_id)" domain="[('customer_id', '=', parent.partner_id),('state','=','confirm'),('quotation','=',False)]"/>
+                </xpath>
+                <xpath expr="//tree[@string='Sales Order Lines']/field[@name='product_id']" position="replace">
+                    <field name="product_id" on_change="product_id_change_scn(no_book, parent.pricelist_id, product_id, product_uom_qty, False, product_uos_qty, False, name, parent.partner_id, False, True, parent.date_order, False, parent.fiscal_position, False, context)"/>
+                </xpath>
+                <xpath expr="//tree[@string='Sales Order Lines']/field[@name='product_uom_qty']" position="replace">
+                    <field name="product_uom_qty" on_change="product_id_change_scn(no_book, parent.pricelist_id, product_id, product_uom_qty, False, product_uos_qty, False, name, parent.partner_id, False, True, parent.date_order, False, parent.fiscal_position, False, context)"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- =============== INHERIT UNIT ================ -->
+        <record model="ir.ui.view" id="carrent_unit_form_inherited_view">
+            <field name="name">carrent.unit.form.inherited.view</field>
+            <field name="model">dtbs.carrent.unit</field>
+            <field name="inherit_id" ref="carrent.dtbs_unit_form_view" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Facility']" position="after">
+                    <page string = "Unit Booking">
+                        <separator colspan='4' string="Unit Booking Line" />
+                        <field name="carrent_booking_unit_ids" colspan="4" nolabel='1' string="Unit Booking Line" readonly="1">
+                            <form string=" Unit line" >
+                                <group colspan='4' col='4'>
+                                    <field name="unit_id"/>
+                                    <field name="date_start"/>
+                                    <field name="state"/>
+                                    <field name="date_end"/>
+                                    <field name="booking_id" />
+                                    <field name="status"/>
+                                </group>
+                            </form>
+                            <tree>
+                                <field name="unit_id"/>
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                                <field name="state"/>
+                                <field name="booking_id" />
+                                <field name="status"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>          
+
+
+        <!-- ==================== SUMMARY =================== -->
+        <record model="ir.ui.view" id="carrent_booking_summary_form_view">
+            <field name="name">unit.booking.summary.form</field>
+            <field name="model">dtbs.carrent.booking.summary</field>
+            <field name="arch" type="xml">
+                <form string="Booking Summary">
+                    <header>
+                        <separator string="Unit Booking Summary" colspan="4"/>
+                    </header>
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <label for="date_from" string="Summary Period"/>
+                            <div>
+                                <field name="date_from" class="oe_inline"/>
+                                to
+                                <field name="date_to" class="oe_inline"/>
+                            </div>
+                        </group>
+                        <notebook>
+                            <page string="Unit Summary">
+                                <field name="summary_header" colspan="4" invisible="1"/>
+                                <field name="unit_summary" colspan="4" invisible="1"/>
+                                <widget type="Unit_Booking"></widget>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_carrent_booking_summary">
+            <field name="name">Unit Booking Summary</field>
+            <field name="type">ir.actions.act_window</field>             
+            <field name="res_model">dtbs.carrent.booking.summary</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+        <menuitem id="summary_menu" name="Booking Summary" parent="booking_menu"
+                  sequence="2"
+                  action="action_carrent_booking_summary"/>
+    </data>
+</openerp>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+  <data>
+    <!-- #################################################################################################### -->
+    <!-- Common Settings -->
+    <!-- #################################################################################################### -->
+    <!-- FORM VIEW -->
+    <!-- #################################################################################################### -->
+    <record id="view_dtbs_automail_settings_form" model="ir.ui.view">
+      <field name="name">dtbs.automail.settings.form</field>
+      <field name="model">dtbs.automail.settings</field>
+      <field name="arch" type="xml">
+        <form class="oe_form_configuration" string="dtbs.automail.settings.form">
+          <header><button type="object" name="execute" string="Apply" class="oe_highlight"/> or <button type="object" name="cancel" string="Cancel" class="oe_link"/></header>
+          <group name="automail" string="Mailing">
+            <label string="Mail to New Customer" for="id"/>
+            <div>
+              <div>
+                <label class="oe_inline" for="default_auto_mail"/>
+                <field name="default_auto_mail" class="oe_inline"/>
+              </div>
+            </div>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- #################################################################################################### -->
+    <!-- ACT WINDOW -->
+    <!-- #################################################################################################### -->
+    <record id="act_dtbs_automail_settings" model="ir.actions.act_window">
+      <field name="name">Auto Mail Settings</field>
+      <field name="res_model">dtbs.automail.settings</field>
+      <field name="view_mode">form</field>
+      <field name="domain">[]</field>
+      <field name="context">{}</field>
+      <field name="target">inline</field>
+      <field name="view_type">form</field>
+    </record>
+    <!-- #################################################################################################### -->
+  </data>
+</openerp>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <!-- Task-related subtypes for messaging / Chatter -->
+        <record id="mt_renewal_new" model="mail.message.subtype">
+            <field name="name">Renewal Created</field>
+            <field name="res_model">dtbs.carrent.stnk.renewal</field>
+            <field name="default" eval="False"/>
+            <field name="hidden" eval="True"/>
+            <field name="description">Renewal created</field>
+        </record>
+        <record id="mt_renewal_stage" model="mail.message.subtype">
+            <field name="name">Stage Changed</field>
+            <field name="res_model">dtbs.carrent.stnk.renewal</field>
+            <field name="default" eval="True"/>
+            <field name="description">Stage changed</field>
+        </record>
+
+    </data>
+</openerp>

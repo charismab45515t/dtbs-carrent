@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<openerp>
+    <data>
+
+        <!--Scheduler for unit -->
+        <record model="ir.cron" id="unit_analytic_cron">
+            <field name="name">Unit analysis</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'dtbs.carrent.unit'"/>
+            <field name="function" eval="'cron_unit_line'"/>
+            <field name="args" eval="'()'" />
+        </record>
+    </data>
+</openerp>

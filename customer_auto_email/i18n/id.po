@@ -1,0 +1,195 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* customer_auto_email
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-26 13:36+0700\n"
+"PO-Revision-Date: 2015-10-26 13:38+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.6\n"
+"Last-Translator: \n"
+"Language: id\n"
+
+#. module: customer_auto_email
+#: model:email.template,body_html:customer_auto_email.email_template_customer_auto
+msgid ""
+"\n"
+"             \n"
+"Selamat bergabung ${object.name},<br><br>Anda telah terdaftar sebagai "
+"pelanggan kami.<br>Kami akan memberikan layanan terbaik demi kepuasan "
+"pelanggan kami.<br>Terimakasih untuk kepercayaan anda menggunakan layanan "
+"kami.<br><br>Salam,<br><br><div style=\"width: 375px; margin: 0px; padding: "
+"0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-"
+"right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: "
+"#DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id."
+"name}</strong></h3>\n"
+"    </div>\n"
+"    \n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % \n"
+"object.company_id.state_id.name) or ''} \n"
+"${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: "
+"0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: "
+"0px; padding-left: 0px; \">\n"
+"                Phone:&nbsp; ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web :&nbsp;<a href=\"https://192.168.1.30/$%7Bobject."
+"company_id.website%7D\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        \n"
+"            "
+msgstr ""
+"\n"
+"             \n"
+"Selamat bergabung ${object.name},<br><br>Anda telah terdaftar sebagai "
+"pelanggan kami.<br>Kami akan memberikan layanan terbaik demi kepuasan "
+"pelanggan kami.<br>Terimakasih untuk kepercayaan anda menggunakan layanan "
+"kami.<br><br>Salam,<br><br><div style=\"width: 375px; margin: 0px; padding: "
+"0px; background-color: #8E0000; border-top-left-radius: 5px 5px; border-top-"
+"right-radius: 5px 5px; background-repeat: repeat no-repeat;\">\n"
+"        <h3 style=\"margin: 0px; padding: 2px 14px; font-size: 12px; color: "
+"#DDD;\">\n"
+"            <strong style=\"text-transform:uppercase;\">${object.company_id."
+"name}</strong></h3>\n"
+"    </div>\n"
+"    \n"
+"        <span style=\"color: #222; margin-bottom: 5px; display: block; \">\n"
+"        % if object.company_id.street:\n"
+"            ${object.company_id.street}<br>\n"
+"        % endif\n"
+"        % if object.company_id.street2:\n"
+"            ${object.company_id.street2}<br>\n"
+"        % endif\n"
+"        % if object.company_id.city or object.company_id.zip:\n"
+"            ${object.company_id.zip} ${object.company_id.city}<br>\n"
+"        % endif\n"
+"        % if object.company_id.country_id:\n"
+"            ${object.company_id.state_id and ('%s, ' % \n"
+"object.company_id.state_id.name) or ''} \n"
+"${object.company_id.country_id.name or ''}<br>\n"
+"        % endif\n"
+"        </span>\n"
+"        % if object.company_id.phone:\n"
+"            <div style=\"margin-top: 0px; margin-right: 0px; margin-bottom: "
+"0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: "
+"0px; padding-left: 0px; \">\n"
+"                Phone:&nbsp; ${object.company_id.phone}\n"
+"            </div>\n"
+"        % endif\n"
+"        % if object.company_id.website:\n"
+"            <div>\n"
+"                Web :&nbsp;<a href=\"https://192.168.1.30/$%7Bobject."
+"company_id.website%7D\">${object.company_id.website}</a>\n"
+"            </div>\n"
+"        %endif\n"
+"        \n"
+"            "
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,default_auto_mail:0
+#: field:dtbs.automail.settings,default_auto_mail:0
+msgid "Allow Send Mail Automatically to New Customer"
+msgstr "Memungkinkan kirim terakhir Mail secara otomatis kepada pelanggan"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "Apply"
+msgstr "Terapkan"
+
+#. module: customer_auto_email
+#: model:ir.actions.act_window,name:customer_auto_email.act_dtbs_automail_settings
+#: model:ir.ui.menu,name:customer_auto_email.dtbs_automail_main
+msgid "Auto Mail Settings"
+msgstr "Pengaturan Pesan Otomatis"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "Cancel"
+msgstr "Batal"
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,create_uid:0
+#: field:dtbs.automail.settings,create_uid:0
+msgid "Created by"
+msgstr "Dibuat oleh"
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,create_date:0
+#: field:dtbs.automail.settings,create_date:0
+msgid "Created on"
+msgstr "Dibuat pada"
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,id:0
+#: field:dtbs.automail.settings,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,write_uid:0
+#: field:dtbs.automail.settings,write_uid:0
+msgid "Last Updated by"
+msgstr "Diubah Terakhir oleh"
+
+#. module: customer_auto_email
+#: field:dtbs.automail.configuration.data,write_date:0
+#: field:dtbs.automail.settings,write_date:0
+msgid "Last Updated on"
+msgstr "Diubah Terakhir pada"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "Mail to New Customer"
+msgstr "Mail ke Pelanggan Baru"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "Mailing"
+msgstr "Pesan"
+
+#. module: customer_auto_email
+#: model:ir.model,name:customer_auto_email.model_res_partner
+msgid "Partner"
+msgstr "Kolega"
+
+#. module: customer_auto_email
+#: model:email.template,subject:customer_auto_email.email_template_customer_auto
+msgid "Welcome to ${object.company_id.name}"
+msgstr "Selamat datang di ${object.company_id.name}"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "dtbs.automail.settings.form"
+msgstr "dtbs.automail.settings.form"
+
+#. module: customer_auto_email
+#: view:dtbs.automail.settings:customer_auto_email.view_dtbs_automail_settings_form
+msgid "or"
+msgstr "atau"

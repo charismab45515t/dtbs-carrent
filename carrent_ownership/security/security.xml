@@ -1,0 +1,34 @@
+<openerp>
+    <data>
+		<record model="ir.module.category" id="category_group_carrent_own_user">
+			<field name="name">Car Rental Ownership</field>
+			<field name="description">Car Rental Ownership is use to maintenance vehicle legal.</field>
+			<field name="sequence">21</field>
+		</record>
+        <record id="group_carrent_own_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="comment">the user will have access to create, edit and delete data</field>
+			<field name="category_id" ref="category_group_carrent_own_user"/>
+			<field name="implied_ids" eval="[(4, ref('carrent.group_carrent_user'))]"/>
+        </record>
+        <record id="group_carrent_own_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="comment">the manager will have access to approve the VRC Renewal</field>
+			<field name="category_id" ref="category_group_carrent_own_user"/>
+			<field name="implied_ids" eval="[(4, ref('group_carrent_own_user'))]"/>
+        </record>
+
+        <!-- Perpanjangan STNK -->
+        <record id="only_draft_can_deleted" model="ir.rule">
+            <field name="name">Only Draft can be deleted</field>
+            <field name="model_id" ref="model_dtbs_carrent_stnk_renewal"/>
+            <field name="groups" eval="[(4, ref('carrent_ownership.group_carrent_own_user'))]"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="domain_force">[('state','=','draft')]</field>
+        </record>
+    </data>
+</openerp>
+

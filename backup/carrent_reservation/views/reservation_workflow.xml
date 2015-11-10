@@ -1,0 +1,53 @@
+<openerp>
+    <data>
+        <record model="workflow" id="wkf_Booking">
+            <field name="name">Carrent Reservation Workflow</field>
+            <field name="osv">dtbs.carrent.booking</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record model="workflow.activity" id="draft">
+            <field name="name">Draft</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_start" eval="True"/>
+        </record>
+        <record model="workflow.activity" id="confirm">
+            <field name="name">Confirm</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="kind">function</field>
+            <field name="action">confirmed_reservation()</field>
+        </record>
+        <record model="workflow.activity" id="cancel">
+            <field name="name">Cancel</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_stop" eval="True"/>
+            <field name="kind">function</field>
+            <field name="action">cancel_reservation()</field>
+        </record>
+        <record model="workflow.activity" id="done">
+            <field name="name">Done</field>
+            <field name="wkf_id" ref="wkf_Booking"/>
+            <field name="flow_stop" eval="True"/>
+            <field name="kind">function</field>
+            <field name="action">create_folio()</field>
+        </record>
+
+
+        <record model="workflow.transition" id="reservation_draft_to_confirm">
+            <field name="act_from" ref="draft"/>
+            <field name="act_to" ref="confirm"/>
+            <field name="signal">confirm</field>
+        </record>
+        <record model="workflow.transition" id="reservation_confirm_to_cancel">
+            <field name="act_from" ref="confirm"/>
+            <field name="act_to" ref="cancel"/>
+            <field name="signal">cancel</field>
+        </record>
+        <record model="workflow.transition" id="reservation_confirm_to_done">
+            <field name="act_from" ref="confirm"/>
+            <field name="act_to" ref="done"/>
+            <field name="signal">done</field>
+        </record>
+    </data>
+</openerp>
+

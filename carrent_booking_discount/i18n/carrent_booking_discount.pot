@@ -1,0 +1,149 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* carrent_booking_discount
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-26 06:04+0000\n"
+"PO-Revision-Date: 2015-10-26 06:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,isactive:0
+msgid "Active"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: model:ir.model,name:carrent_booking_discount.model_dtbs_carrent_booking
+msgid "Booking"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,create_uid:0
+#: field:dtbs.carrent.discount.line.setting,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,create_date:0
+#: field:dtbs.carrent.discount.line.setting,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,currency_id:0
+msgid "Currency"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,customer_id:0
+msgid "Customer"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: view:dtbs.carrent.booking:carrent_booking_discount.carrent_booking_form_inherited_view
+#: field:dtbs.carrent.booking,discount_id:0
+#: field:dtbs.carrent.discount.line.setting,discount_id:0
+#: model:ir.ui.menu,name:carrent_booking_discount.discount_menu
+msgid "Discount"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking,persentage:0
+#: field:dtbs.carrent.discount.line.setting,persentage:0
+msgid "Discount (%)"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: view:dtbs.carrent.discount.line.setting:carrent_booking_discount.dtbs_booking_discount_line_setting_form_view
+#: view:dtbs.carrent.discount.line.setting:carrent_booking_discount.dtbs_booking_discount_line_setting_tree_view
+#: model:ir.model,name:carrent_booking_discount.model_dtbs_carrent_discount_line_setting
+msgid "Discount Line Setting"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: view:dtbs.carrent.booking.discount.setting:carrent_booking_discount.dtbs_booking_discount_setting_form_view
+#: field:dtbs.carrent.booking.discount.setting,discount_line:0
+msgid "Discount Lines"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,name:0
+msgid "Discount Name"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: view:dtbs.carrent.booking.discount.setting:carrent_booking_discount.dtbs_booking_discount_setting_form_view
+#: view:dtbs.carrent.booking.discount.setting:carrent_booking_discount.dtbs_booking_discount_setting_tree_view
+#: model:ir.model,name:carrent_booking_discount.model_dtbs_carrent_booking_discount_setting
+msgid "Discount Setting"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: model:ir.actions.act_window,name:carrent_booking_discount.dtbs_booking_discount_setting_action
+#: model:ir.ui.menu,name:carrent_booking_discount.discount_setting_menu
+msgid "Discount Settings"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.discount.line.setting,date_end:0
+msgid "End Date"
+msgstr ""
+
+#. module: carrent_booking_discount
+#. openerp-web
+#: code:addons/carrent_booking_discount/static/src/js/carrent_unit_summary.js:9
+#, python-format
+msgid "Form"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,id:0
+#: field:dtbs.carrent.discount.line.setting,id:0
+msgid "ID"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,write_uid:0
+#: field:dtbs.carrent.discount.line.setting,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.booking.discount.setting,write_date:0
+#: field:dtbs.carrent.discount.line.setting,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: view:dtbs.carrent.booking.discount.setting:carrent_booking_discount.dtbs_booking_discount_setting_form_view
+msgid "Name"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: model:ir.model,name:carrent_booking_discount.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.discount.line.setting,date_start:0
+msgid "Start Date"
+msgstr ""
+
+#. module: carrent_booking_discount
+#: field:dtbs.carrent.discount.line.setting,unit_model:0
+msgid "Unit Model"
+msgstr ""
+

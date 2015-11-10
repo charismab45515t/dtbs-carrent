@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+carrent_brand_user,brand user,model_dtbs_carrent_brand,group_carrent_user,1,1,1,1
+carrent_model_user,model user,model_dtbs_carrent_model,group_carrent_user,1,1,1,1
+carrent_color_user,color user,model_dtbs_carrent_color,group_carrent_user,1,1,1,1
+carrent_product_categ_user,product categ user,model_product_category,group_carrent_user,1,0,0,0
+carrent_categ_user,categ user,model_dtbs_carrent_category,group_carrent_user,1,1,1,1
+carrent_facility_user,facility user,model_dtbs_carrent_facility,group_carrent_user,1,1,1,1
+carrent_product_tmpl_user,product tmpl user,model_product_template,group_carrent_user,1,1,1,1
+carrent_unit_user,unit user,model_dtbs_carrent_unit,group_carrent_user,1,1,1,1

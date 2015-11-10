@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <menuitem id="t_charge_menu" name="Charges" parent="carrent.main_carrent_menu" sequence="300"/>
+        <menuitem id="charge_menu" name="Charges" parent="carrent.config_menu" sequence="704"/>
+
+
+        <!-- ======================= CHARGE SETTING ================== -->
+        <record model="ir.ui.view" id="dtbs_booking_charge_setting_form_view">
+            <field name="name">dtbs.booking.charge.setting.form</field>
+            <field name="model">dtbs.carrent.booking.charge.setting</field>
+            <field name="arch" type="xml">
+                <form string="Charge Setting" >
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" string="Name" />
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <notebook>
+                            <page string="Information">
+                                <group>
+                                    <group>
+                                        <field name="uom_id" readonly="1" groups="product.group_uom"/>
+                                        <field name="list_price"/>
+                                        <field name="sale_price_currency_id"/>
+                                        <field name="cia_currency_list_price"/>
+                                    </group>
+                                    <group>
+                                        <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_charge_setting_tree_view">
+            <field name="name">dtbs.booking.charge.setting.tree</field>
+            <field name="model">dtbs.carrent.booking.charge.setting</field>
+            <field name="arch" type="xml">
+                <tree string="Charge Setting">
+                    <field name="name"/>
+                    <field name="uom_id" groups="product.group_uom"/>
+                    <field name="list_price"/>
+                    <field name="sale_price_currency_id"/>
+                    <field name="cia_currency_list_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_booking_charge_setting_action">
+            <field name="name">Charge Settings</field>
+            <field name="res_model">dtbs.carrent.booking.charge.setting</field>
+            <field name="view_type">form</field>
+            <field name="context">{'default_ischarge':1}</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="charge_setting_menu" name="Charge Settings" parent="charge_menu"
+                  sequence="1"
+                  action="dtbs_booking_charge_setting_action"/>
+
+
+        <!-- ============= CHARGE =================== -->
+        <record model="ir.ui.view" id="dtbs_booking_charge_tree_view">
+            <field name="name">dtbs.booking.charge.tree</field>
+            <field name="model">dtbs.carrent.booking.charge</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="dtbs_booking_charge_tree" toolbar="1" colors="red:state=='draft';blue:state=='invoic'">
+                    <field name="no_fak"/>
+                    <field name="customer_id"/>
+                    <field name="booking_id"/>
+                    <field name="date_end"/>
+                    <field name="real_date_end"/>
+                    <field name="late"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                    <field name="invoice_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_charge_form_view">
+            <field name="name">dtbs.booking.charge.form</field>
+            <field name="model">dtbs.carrent.booking.charge</field>
+            <field name="arch" type="xml">
+                <form string="Booking Charge">
+                    <header>
+                        <button name="invoic" type="workflow" string="Create Invoice" states="draft" class="oe_highlight"/>
+                        <button name="except" type="workflow" string="Exception" states="draft"/>
+                        <button name="recreate_invoice" type="object" string="Recreate Invoice" attrs="{'invisible':['|',('invoice_id','!=', False),('state','!=', 'invoic')]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="no_fak" string="Charge Number"/>
+                            <h1>
+                                <field name="no_fak" />
+                            </h1>
+                            <label for="customer_id" string="Customer"/>
+                            <h3>
+                                <field name="customer_id"/>
+                            </h3>
+                        </div>
+                        <notebook>
+                            <page string="Information">
+                                <group>
+                                    <group>
+                                        <field name="booking_id"/>
+                                    </group>
+                                    <group>
+                                        <field name="company_id" widget="selection" groups="base.group_multi_company"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="date_end"/>
+                                        <field name="real_date_end"/>
+                                    </group>
+                                    <group>
+                                        <field name="late"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="comment"/>
+                                </group>
+                            </page>
+                            <page string="Invoice">
+                                <group>
+                                    <group>
+                                        <field readonly="1" name="invoice_id"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="dtbs_booking_charge_search_view">
+            <field name="name">dtbs.booking.charge.search</field>
+            <field name="model">dtbs.carrent.booking.charge</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="no_fak"/>
+                    <field name="customer_id"/>
+                    <field name="booking_id"/>
+                    <field name="date_end"/>
+                    <field name="real_date_end"/>
+                    <field name="late"/>
+                    <field name="company_id"/>
+                    <field name="state"/>
+                    <field name="invoice_id"/>
+                    <filter name="my_new" string="New" domain="[('state', '=', 'draft')]"/>
+                    <group string="Group By">
+                        <filter name="group_by_state" string="Status" context="{'group_by': 'state'}"/>
+                        <filter name="group_by_customer" string="Customer" context="{'group_by': 'customer_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="dtbs_booking_charge_list_action">
+            <field name="name">Booking Charge</field>
+            <field name="res_model">dtbs.carrent.booking.charge</field>
+            <field name="view_type">form</field>
+            <field name="context" eval="{'search_default_my_new': 1}"/>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="booking_charge_menu" name="Charges" parent="t_charge_menu"
+                  sequence="1"
+                  action="dtbs_booking_charge_list_action"/>
+
+    </data>
+</openerp>

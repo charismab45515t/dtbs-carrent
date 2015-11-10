@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+         <!-- Sequences for Booking Charge -->
+        <record id="dtbs_seq_booking_charge_type" model="ir.sequence.type">
+            <field name="name">Booking Charge</field>
+            <field name="code">dtbs.carrent.booking.charge</field>
+        </record>
+ 
+        <record id="dtbs_seq_booking_charge" model="ir.sequence">
+            <field name="name">Charge Number</field>
+            <field name="code">dtbs.carrent.booking.charge</field>
+            <field name="prefix">CHG/%(year)s%(month)s/</field>
+            <field name="padding">3</field>
+            <field name="number_next_actual">1</field>            
+            <field name="number_increment">1</field>
+            <field name="implementation">standard</field>
+        </record>
+
+    </data>
+</openerp>
+
+

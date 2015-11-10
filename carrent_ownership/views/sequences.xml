@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+         <!-- Sequences for RVC Renewal -->
+        <record id="dtbs_seq_vrc_renewal_type" model="ir.sequence.type">
+            <field name="name">Renewal</field>
+            <field name="code">dtbs.carrent.stnk.renewal</field>
+        </record>
+ 
+        <record id="dtbs_seq_vrc_renewal" model="ir.sequence">
+            <field name="name">RVC Renewal</field>
+            <field name="code">dtbs.carrent.stnk.renewal</field>
+            <field name="prefix">RVC/%(year)s%(month)s/</field>
+            <field name="padding">3</field>
+            <field name="number_next_actual">1</field>            
+            <field name="number_increment">1</field>
+            <field name="implementation">standard</field>
+        </record>
+    </data>
+</openerp>

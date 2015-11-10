@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+	<data>
+    	<!-- Auto Menu -->
+    	<menuitem action="act_dtbs_automail_settings" id="dtbs_automail_main" name="Auto Mail Settings" parent="csmart_base.csmart_base" sequence="10"/>
+  	</data>
+</openerp>

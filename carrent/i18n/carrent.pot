@@ -1,0 +1,385 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* carrent
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-23 11:20+0000\n"
+"PO-Revision-Date: 2015-10-23 11:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: carrent
+#: model:ir.actions.act_window,help:carrent.dtbs_brand_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new brand here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent
+#: model:ir.actions.act_window,help:carrent.dtbs_color_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new color here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent
+#: model:ir.actions.act_window,help:carrent.dtbs_facility_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new facility here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent
+#: model:ir.actions.act_window,help:carrent.dtbs_model_list_action
+msgid "<p class=\"oe_view_nocontent_create\">Create new model here\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: carrent
+#: model:ir.ui.menu,name:carrent.amenity_menu
+msgid "Amenity"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+#: selection:dtbs.carrent.unit,status:0
+msgid "Available"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.model,brand:0
+#: field:dtbs.carrent.unit,brand_id:0
+#: model:ir.actions.act_window,name:carrent.dtbs_brand_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_brand
+#: model:ir.ui.menu,name:carrent.brand_menu
+msgid "Brand"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,capacity:0
+msgid "Capacity"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "Capacity:"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.brand:carrent.dtbs_brand_form_view
+msgid "Car Brand"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.color:carrent.dtbs_color_form_view
+msgid "Car Color"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.model:carrent.dtbs_model_form_view
+msgid "Car Model"
+msgstr ""
+
+#. module: carrent
+#: model:ir.ui.menu,name:carrent.main_carrent_menu
+msgid "Car Rental"
+msgstr ""
+
+#. module: carrent
+#: model:ir.module.category,name:carrent.category_group_carrent_user
+msgid "Car Rental Basic"
+msgstr ""
+
+#. module: carrent
+#: model:ir.module.category,description:carrent.category_group_carrent_user
+msgid "Car Rental Basic is containing master data of this application."
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.category,cat_id:0
+#: model:ir.actions.act_window,name:carrent.dtbs_category_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_category
+#: model:ir.ui.menu,name:carrent.category_menu
+msgid "Category"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+msgid "Code"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.color,name:0
+#: field:dtbs.carrent.unit,color:0
+#: model:ir.actions.act_window,name:carrent.dtbs_color_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_color
+#: model:ir.ui.menu,name:carrent.color_menu
+msgid "Color"
+msgstr ""
+
+#. module: carrent
+#: model:ir.ui.menu,name:carrent.config_menu
+msgid "Configuration"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,create_uid:0
+#: field:dtbs.carrent.category,create_uid:0
+#: field:dtbs.carrent.color,create_uid:0
+#: field:dtbs.carrent.facility,create_uid:0
+#: field:dtbs.carrent.model,create_uid:0
+#: field:dtbs.carrent.unit,create_uid:0
+msgid "Created by"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,create_date:0
+#: field:dtbs.carrent.category,create_date:0
+#: field:dtbs.carrent.color,create_date:0
+#: field:dtbs.carrent.facility,create_date:0
+#: field:dtbs.carrent.model,create_date:0
+#: field:dtbs.carrent.unit,create_date:0
+msgid "Created on"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,status:0
+msgid "Current Status"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "Delete"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.facility,desc:0
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+#: field:dtbs.carrent.unit,desc:0
+msgid "Description"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "Edit"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.facility:carrent.dtbs_facility_form_view
+#: field:dtbs.carrent.facility,name:0
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+#: field:dtbs.carrent.unit,facility_ids:0
+#: model:ir.actions.act_window,name:carrent.dtbs_facility_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_facility
+#: model:ir.ui.menu,name:carrent.facility_menu
+msgid "Facility"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,fuel:0
+msgid "Fuel"
+msgstr ""
+
+#. module: carrent
+#: model:ir.ui.menu,name:carrent.vehicle_by_category_menu
+msgid "Group of Category"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,id:0
+#: field:dtbs.carrent.category,id:0
+#: field:dtbs.carrent.color,id:0
+#: field:dtbs.carrent.facility,id:0
+#: field:dtbs.carrent.model,id:0
+#: field:dtbs.carrent.unit,id:0
+msgid "ID"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+msgid "Information"
+msgstr ""
+
+#. module: carrent
+#: field:product.template,isvehicle:0
+msgid "Is Available"
+msgstr ""
+
+#. module: carrent
+#: field:product.category,isvehiclecat:0
+msgid "Is Vehicle Category"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,kanban_color:0
+msgid "Kanban color"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,write_uid:0
+#: field:dtbs.carrent.category,write_uid:0
+#: field:dtbs.carrent.color,write_uid:0
+#: field:dtbs.carrent.facility,write_uid:0
+#: field:dtbs.carrent.model,write_uid:0
+#: field:dtbs.carrent.unit,write_uid:0
+msgid "Last Updated by"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,write_date:0
+#: field:dtbs.carrent.category,write_date:0
+#: field:dtbs.carrent.color,write_date:0
+#: field:dtbs.carrent.facility,write_date:0
+#: field:dtbs.carrent.model,write_date:0
+#: field:dtbs.carrent.unit,write_date:0
+msgid "Last Updated on"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,model_id:0
+#: model:ir.actions.act_window,name:carrent.dtbs_model_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_model
+#: model:ir.ui.menu,name:carrent.model_menu
+msgid "Model"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "Model:"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.brand,name:0
+#: field:dtbs.carrent.model,name:0
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+msgid "Name"
+msgstr ""
+
+#. module: carrent
+#: selection:dtbs.carrent.unit,status:0
+msgid "Occupied"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,police:0
+msgid "Police Number"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+msgid "Pricelist"
+msgstr ""
+
+#. module: carrent
+#: model:ir.model,name:carrent.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: carrent
+#: model:ir.model,name:carrent.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,product_id:0
+msgid "Product_id"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,year:0
+msgid "Production Year"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "Status:"
+msgstr ""
+
+#. module: carrent
+#: sql_constraint:dtbs.carrent.unit:0
+msgid "The car code must be unique"
+msgstr ""
+
+#. module: carrent
+#: sql_constraint:dtbs.carrent.unit:0
+msgid "The police number must be unique"
+msgstr ""
+
+#. module: carrent
+#: model:res.groups,name:carrent.group_carrent_user
+msgid "User"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_tree_view
+#: model:ir.actions.act_window,name:carrent.dtbs_unit_list_action
+#: model:ir.model,name:carrent.model_dtbs_carrent_unit
+#: model:ir.ui.menu,name:carrent.unit_menu
+msgid "Vehicle"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.category:carrent.dtbs_category_form_view
+#: view:dtbs.carrent.category:carrent.dtbs_category_tree_view
+msgid "Vehicle Category"
+msgstr ""
+
+#. module: carrent
+#: field:dtbs.carrent.unit,code:0
+msgid "Vehicle Code"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_form_view
+msgid "Vehicle Status"
+msgstr ""
+
+#. module: carrent
+#: model:ir.actions.act_window,name:carrent.dtbs_vehicle_category_action
+msgid "Vehicle by Category"
+msgstr ""
+
+#. module: carrent
+#: model:ir.ui.menu,name:carrent.vehicle_menu
+msgid "Vehicles"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.brand:carrent.dtbs_brand_tree_view
+msgid "dtbs_brand_tree"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.color:carrent.dtbs_color_tree_view
+msgid "dtbs_color_tree"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.facility:carrent.dtbs_facility_tree_view
+msgid "dtbs_facility_tree"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.model:carrent.dtbs_model_tree_view
+msgid "dtbs_model_tree"
+msgstr ""
+
+#. module: carrent
+#: view:dtbs.carrent.unit:carrent.dtbs_unit_kanban_view
+msgid "occupied"
+msgstr ""
+
+#. module: carrent
+#: model:res.groups,comment:carrent.group_carrent_user
+msgid "the user will have access to create, edit and delete data"
+msgstr ""
+

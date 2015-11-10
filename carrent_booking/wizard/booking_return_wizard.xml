@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="dtbs_carrent_booking_return_wizard_view">
+            <field name="name">dtbs.carrent.booking.return.wizard.form</field>
+            <field name="model">dtbs.carrent.return.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Unit Return">
+                    <group>
+                        <field name="date_return"/>
+                    </group>
+                <footer>
+                    <button name="return_unit" type="object" class="oe_highlight" string="Returned"/>
+                    or 
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_dtbs_carrent_booking_return">
+            <field name="name">Booking Return Wizard</field>
+            <field name="res_model">dtbs.carrent.return.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="dtbs_carrent_booking_return_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</openerp>
