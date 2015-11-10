@@ -3,6 +3,7 @@ from openerp.tools import misc, DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATET
 from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
+from ..text import AVAILABLE, OCCUPIED, UNIQ_CODE, UNIQ_POLICE
 import datetime
 import time
 import urllib2
@@ -61,6 +62,10 @@ class product_template(models.Model):
 
 	isvehicle = fields.Boolean('Is Available', default=True)
 
+STATE = (
+    ('available', AVAILABLE),
+    ('occupied', OCCUPIED),
+)
 
 class Unit(models.Model):
 	_name = "dtbs.carrent.unit"
@@ -78,15 +83,15 @@ class Unit(models.Model):
 	desc = fields.Text(string="Description")
 	facility_ids = fields.Many2many(comodel_name="dtbs.carrent.facility", string="Facility")
 	model_id = fields.Many2one(comodel_name="dtbs.carrent.model", string="Model", required=True)
-	status = fields.Selection([('available', 'Available'),('occupied', 'Occupied')], string='Current Status', default='available')
+	status = fields.Selection(STATE, string='Current Status', default='available')
 	kanban_color = fields.Integer()
 	fuel = fields.Char(string="Fuel")
 
 
 
 	_sql_constraints = [
-		("Unique Code", "UNIQUE(code)", "The car code must be unique"),
-		("Unique Police", "UNIQUE(police)", "The police number must be unique"),
+		("Unique Code", "UNIQUE(code)", UNIQ_CODE),
+		("Unique Police", "UNIQUE(police)", UNIQ_POLICE),
 	]
 
 	@api.onchange('uom_id')
