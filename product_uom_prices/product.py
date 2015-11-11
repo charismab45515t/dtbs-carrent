@@ -38,9 +38,9 @@ class product_template(models.Model):
 
     _inherit = 'product.template'
 
-    use_uom_prices = fields.Boolean(
-        'Use UOM Prices?',
-        help='Use different prices for different UOMs?')
+    # use_uom_prices = fields.Boolean(
+    #     'Use UOM Prices?',
+    #     help='Use different prices for different UOMs?')
     uom_category_id = fields.Many2one(
         'product.uom.categ',
         string='UOM Category', related='uom_id.category_id')
@@ -70,7 +70,8 @@ class product_template(models.Model):
             cr, uid, products, ptype=ptype, context=context)
         product_uom_price_obj = self.pool['product.uom.price']
         for product in products:
-            if product.use_uom_prices and 'uom' in context:
+            # if product.use_uom_prices and 'uom' in context:
+            if 'uom' in context:
                 product_uom_price_ids = product_uom_price_obj.search(
                     cr, uid, [
                         ('uom_id', '=', context['uom']),
