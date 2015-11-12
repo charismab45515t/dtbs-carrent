@@ -174,6 +174,7 @@ class Booking(models.Model):
 			res['domain'] = {'pricelist': [('product_tmpl_id', '=', '')]}
 		return res
 
+    
 
 	@api.multi
 	def create_order(self):
@@ -336,6 +337,7 @@ class Booking(models.Model):
 			vals['no_book'] = self.env['ir.sequence'].get('dtbs.carrent.booking') or '/'
 		context = dict({}, mail_create_nolog=True)
 		book =  super(Booking, self).create(vals)
+
 		return book
 
 

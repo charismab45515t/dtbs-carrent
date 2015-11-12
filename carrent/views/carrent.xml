@@ -194,6 +194,7 @@
 							<field name="name" select="1"/>
                             <field name="parent_id" domain="[('isvehiclecat','=',True)]" select="1"/>
                             <field name="isvehiclecat" invisible="1"/>
+                            <field name="cat_parent_id" invisible="1"/>
                         </group>
                     </sheet>
                 </form>
@@ -206,7 +207,7 @@
             <field name="model">dtbs.carrent.category</field>
             <field name="arch" type="xml">
                 <tree string="Vehicle Category">
-                    <field name="name"/>
+                    <field name="complete_name"/>
                 </tree>
             </field>
         </record>
@@ -227,13 +228,31 @@
 
         
         <!-- =========== VEHICLE BY CATEGORY ================= -->
+        <record id="vehicle_category_tree_view" model="ir.ui.view">
+            <field name="name">vehicle.category.tree</field>
+            <field name="model">dtbs.carrent.category</field>
+            <field name="field_parent">cat_child_id</field>
+            <field name="arch" type="xml">
+                <tree toolbar="True" string="Vehicle Categories">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
         <record model="ir.actions.act_window" id="dtbs_vehicle_category_action">
             <field name="name">Vehicle by Category</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">product.category</field>
+            <field name="res_model">dtbs.carrent.category</field>
             <field name="domain">[('parent_id','=',False),('isvehiclecat','=',True)]</field>
             <field name="view_type">tree</field>
-            <field name="view_id" ref="product.product_category_tree_view"/>
+            <field name="view_id" ref="vehicle_category_tree_view"/>
+            <field name="help" type="html">
+              <p>
+                Here is a list of all your vehicles classified by category. You
+                can click a category to get the list of all vehicles linked to
+                this category or to a child of this category.
+              </p>
+            </field>
         </record>
 
         <menuitem id="vehicle_by_category_menu" name="Group of Category" parent="vehicle_menu"

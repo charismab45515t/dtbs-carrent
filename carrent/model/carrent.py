@@ -48,6 +48,14 @@ class Category(models.Model):
 	_description = "Category"
 
 	cat_id = fields.Many2one(comodel_name="product.category", string="Category", required=True, delegate=True, select=True, ondelete='cascade')
+	cat_parent_id = fields.Many2one(comodel_name="dtbs.carrent.category", string='Vehicles Parent Category', select=True, ondelete='cascade')
+	cat_child_id = fields.One2many(comodel_name="dtbs.carrent.category", inverse_name="cat_parent_id", string='Vehicles Child Categories')
+
+	@api.onchange('parent_id')
+	def parent_id_change(self):
+		for record in self:
+			record.cat_parent_id = record.env['dtbs.carrent.category'].search([('cat_id', '=', record.parent_id.id)]).id
+
 
 
 # ========= Amenity ============= #
