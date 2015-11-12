@@ -192,7 +192,7 @@
 					<sheet>
 						<group>
 							<field name="name" select="1"/>
-                            <field name="parent_id" domain="[('isvehiclecat','=',True)]" select="1"/>
+                            <field name="parent_id" domain="[('isvehiclecat','=',True)]" select="1" options="{'no_create_edit': True, 'no_create': True}"/>
                             <field name="isvehiclecat" invisible="1"/>
                             <field name="cat_parent_id" invisible="1"/>
                         </group>
@@ -341,8 +341,8 @@
                         </div>
                         <group>
                             <group>
-                                <field name="company_id" groups="base.group_multi_company" widget="selection"/>
-                                <field name="categ_id"/>
+                                <field name="company_id" groups="base.group_multi_company" widget="selection" options="{'no_create_edit': True, 'no_create': True}"/>
+                                <field name="categ_id" options="{'no_create_edit': True, 'no_create': True}"/>
                             </group>
                             <group>
                                 <field name="brand_id"/>
@@ -373,20 +373,20 @@
                             <page string="Pricelist">
                                 <group colspan="4" col="2">
                                     <group>
-                                        <field name="uom_id" groups="product.group_uom"/>
+                                        <field name="uom_id" groups="product.group_uom" options="{'no_create_edit': True, 'no_create': True}"/>
                                         <field name="list_price"/>
                                     </group>
                                     <group>
-                                        <field name="sale_price_currency_id"/>
+                                        <field name="sale_price_currency_id" options="{'no_create_edit': True, 'no_create': True}"/>
                                         <field name="cia_currency_list_price"/>
                                     </group>
-                                    <group>
+                                    <group string="Rental Price" groups="product.group_uom">
                                         <!-- <field name="use_uom_prices" groups="product.group_uom"/> -->
-                                        <field name="uom_category_id" invisible="1"/>
+                                        <field name="uom_category_id" attrs="{'readonly':[('uom_price_ids','!=',[])]}" options="{'no_create_edit': True, 'no_create': True}" groups="product.group_uom"/>
                                         <!-- <field name="uom_price_ids" context="{'uom_category_id': uom_category_id}" attrs="{'invisible':[('use_uom_prices','=',False)]}"  groups="product.group_uom"> -->
                                         <field name="uom_price_ids" context="{'uom_category_id': uom_category_id}" groups="product.group_uom">
                                             <tree editable="top">
-                                                <field name="uom_id" domain="[('category_id', '=', uom_category_id)]"/>
+                                                <field name="uom_id" domain="[('category_id', '=', uom_category_id)]" options="{'no_create_edit': True, 'no_create': True}"/>
                                                 <field name="price"/>
                                             </tree>
                                         </field>

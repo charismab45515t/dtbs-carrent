@@ -102,12 +102,12 @@ class Unit(models.Model):
 		("Unique Police", "UNIQUE(police)", UNIQ_POLICE),
 	]
 
-	@api.onchange('uom_id')
-	def uom_change(self):
-		uom_categ = self.env['product.uom']
-		uom_categ_ids = uom_categ.search([('id', '=', self.uom_id.id)])
-		for x in uom_categ_ids:
-			self.uom_category_id = x.category_id
+	# @api.onchange('uom_id')
+	# def uom_change(self):
+	# 	uom_categ = self.env['product.uom']
+	# 	uom_categ_ids = uom_categ.search([('id', '=', self.uom_id.id)])
+	# 	for x in uom_categ_ids:
+	# 		self.uom_category_id = x.category_id
 
 
 	@api.onchange('isvehicle')
