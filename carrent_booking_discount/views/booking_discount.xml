@@ -20,12 +20,12 @@
                         </div>
                         <group>
                             <group>
-                                <field name="currency_id"/>
-                                <field name="company_id"/>
+                                <field name="currency_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                <field name="company_id" options="{'no_create_edit': True, 'no_create': True}"/>
                             </group>
                             <group>
                                 <field name="isactive"/>
-                                <field name="customer_id"/>
+                                <field name="customer_id" options="{'no_create_edit': True, 'no_create': True}"/>
                             </group>
                         </group>
                         <notebook>
@@ -87,7 +87,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="unit_model"/>
+                                <field name="unit_model" options="{'no_create_edit': True, 'no_create': True}"/>
                             </group>
                         </group>
                         <group>
@@ -132,7 +132,7 @@
                     <page string = "Discount">
                         <group>
                             <group>
-                                <field name="discount_id" domain="[('isactive','=',True),'|',('customer_id','=',customer_id),('customer_id','=',False)]"/>
+                                <field name="discount_id" domain="[('isactive','=',True),'|',('customer_id','=',customer_id),('customer_id','=',False)]" options="{'no_create_edit': True, 'no_create': True}"/>
                                 <field name="persentage"/>
                             </group>
                         </group>

@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 from openerp.exceptions import except_orm, Warning, ValidationError
 from decimal import Decimal
 from ..text import DRAFT, INVOIC, EXCEPT
-from ..text import WARN_HEAD1, WARN_DEFAULT_COMPANY, WARN_HEAD2, WARN_NEW_INVOIC
+from ..text import WARN_HEAD1, WARN_DEFAULT_COMPANY, WARN_HEAD2, WARN_NEW_INVOIC, WARN_DELETE
 import datetime
 import time
 import urllib2
@@ -29,6 +29,11 @@ class charge_setting(models.Model):
 	_description = "Charge Setting"
 
 	product_id = fields.Many2one(comodel_name='product.template', string='Product_id', required=True, delegate=True, ondelete='cascade')
+
+
+	@api.multi
+	def unlink(self):
+		raise Warning(WARN_HEAD1, WARN_DELETE)
 
 
 

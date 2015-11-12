@@ -50,7 +50,7 @@
                             </h1>
                             <label for="customer_id" string="Customer"/>
                             <h3>
-                                <field name="customer_id"/>
+                                <field name="customer_id" options="{'no_create_edit': True, 'no_create': True}"/>
                             </h3>
                         </div>
                         <group>
@@ -76,11 +76,11 @@
                             <page string="Rental Detail">
                                 <group>
                                     <group>
-                                        <field name="unit_id"/>
+                                        <field name="unit_id" options="{'no_create_edit': True, 'no_create': True}"/>
                                         <field name="police"/>
                                     </group>
                                     <group>
-                                        <field name="pricelist" groups="product.group_uom"/>
+                                        <field name="pricelist" groups="product.group_uom" options="{'no_create_edit': True, 'no_create': True}"/>
                                         <field name="price" groups="product.group_uom"/>
                                         <field name="sale_uom" attrs="{'invisible':[('price_by_uom','=',True)]}"/>
                                         <field name="sale_price" attrs="{'invisible':[('price_by_uom','=',True)]}"/>

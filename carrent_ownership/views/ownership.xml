@@ -13,8 +13,8 @@
                 <xpath expr="//page[@string='Facility']" position="after">
                     <page string="Ownership">
                         <group>
-                            <field name="bpkb_id"/>
-                            <field name="stnk_id"/>
+                            <field name="bpkb_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                            <field name="stnk_id" options="{'no_create_edit': True, 'no_create': True}"/>
                         </group>
                     </page>
                 </xpath>
@@ -48,7 +48,7 @@
                             </h1>
                             <label for="police" string="Police Number" />
                             <h2>
-                                <field name="police" />
+                                <field name="police" options="{'no_create_edit': True, 'no_create': True}"/>
                             </h2>
                         </div>
 
@@ -164,7 +164,7 @@
                             </h1>
                             <label for="police" string="Police Number" />
                             <h2>
-                                <field name="police" />
+                                <field name="police" options="{'no_create_edit': True, 'no_create': True}"/>
                             </h2>
                         </div>
 
@@ -243,7 +243,7 @@
                             </h1>
                             <label for="vrc_id" string="VRC Number" />
                             <h2>
-                                <field name="vrc_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}"/>
+                                <field name="vrc_id" attrs="{'readonly': [('state', 'not in', ['draft'])]}" options="{'no_create_edit': True, 'no_create': True}"/>
                             </h2>
                         </div>
 

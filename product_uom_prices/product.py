@@ -55,8 +55,8 @@ class product_template(models.Model):
         uom_ids = [x.uom_id.id for x in self.uom_price_ids]
         if self.uom_id.id in uom_ids:
             raise Warning(WARN_DEFAULT_UOM % (self.uom_id.name))
-        if len(uom_categ_ids) > 1 or (uom_categ_ids and uom_categ_ids[0] != self.uom_id.category_id.id):
-            raise Warning(WARN_CATEGORY_UOM)
+        # if len(uom_categ_ids) > 1 or (uom_categ_ids and uom_categ_ids[0] != self.uom_id.category_id.id):
+        #     raise Warning(WARN_CATEGORY_UOM)
 
     def _price_get(self, cr, uid, products, ptype='list_price', context=None):
         if not context:
