@@ -41,9 +41,10 @@ class product_template(models.Model):
     # use_uom_prices = fields.Boolean(
     #     'Use UOM Prices?',
     #     help='Use different prices for different UOMs?')
-    uom_category_id = fields.Many2one(
-        'product.uom.categ',
-        string='UOM Category', related='uom_id.category_id')
+    # uom_category_id = fields.Many2one(
+    #     'product.uom.categ',
+    #     string='UOM Category', related='uom_id.category_id')
+    uom_category_id = fields.Many2one('product.uom.categ', string='UOM Category', required=True)
     uom_price_ids = fields.One2many(
         'product.uom.price', 'product_tmpl_id', string='UOM Prices')
 
